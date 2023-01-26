@@ -10,7 +10,7 @@ public class Dragon : MonoBehaviour
     public float moveDistance = 10f;
 
     private float currentDistance;
-
+    private bool isDead = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +20,10 @@ public class Dragon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isDead)
+        {
+            return;
+        }
         //currentDistance = transform.position.x;
 
         if (transform.position.x > 0f) 
@@ -28,4 +32,14 @@ public class Dragon : MonoBehaviour
         }
         
     }
+
+    public void OnHit(float damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }

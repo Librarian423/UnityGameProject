@@ -7,9 +7,8 @@ public class Arrow : MonoBehaviour
 {
 
     private Rigidbody2D rb;
-    private IObjectPool<Arrow> arrowPool;
-
-    public float fireForce = 14f;
+    public IObjectPool<Arrow> arrowPool { get; set; }
+    public float Damage { get; set; }
 
     // Start is called before the first frame update
     void Start()
@@ -21,18 +20,12 @@ public class Arrow : MonoBehaviour
     void Update()
     {
         Move();
-        //rb.velocity = transform.right * fireForce;
     }
 
-    public void SetPool(IObjectPool<Arrow> pool)
+    private void OnBecameInvisible()
     {
-        arrowPool = pool;
+        arrowPool.Release(this);
     }
-
-    //private void OnBecameInvisible()
-    //{
-    //    arrowPool.Release(this);
-    //}
 
     private void Move()
     {
@@ -46,8 +39,13 @@ public class Arrow : MonoBehaviour
     {
         if (collision.collider.CompareTag("Enemy"))
         {
-            Debug.Log("hit");
-            Destroy(gameObject);
+            //Debug.Log("hit");
+            var target = collision.collider.GetComponent<Dragon>();
+            if (target != null) 
+            {
+                target.OnHit(Damage);
+            }
+            gameObject.SetActive(false);
         }
         
     }

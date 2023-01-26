@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
+using UnityEngine.XR;
 using static UnityEngine.GraphicsBuffer;
 
 public class Bow : MonoBehaviour
@@ -17,43 +18,59 @@ public class Bow : MonoBehaviour
     public int dotCount = 20;
     public float force = 14f;
 
+    //Fire timer
+    public float fireDelay = 0.2f;
+    private float timer = 0.2f;
+
     //Arrow Pool
-    //private IObjectPool<Arrow> arrowPool;
-
+    public int maxPoolSize = 500;
+    public int stackDefaultCapacity = 100;
     public Arrow arrowPrefab;
-    public float fireForce = 14f;
+    public float damage = 10f;
 
-    //private void Awake()
-    //{
-    //    arrowPool = new ObjectPool<Arrow>(
-    //        CreateArrow,
-    //        OnGet,
-    //        OnRelease,
-    //        OnDestroyArrow,
-    //        maxSize: 10);
-    //}
+    private IObjectPool<Arrow> arrowPool;
+    public IObjectPool<Arrow> ArrowPool
+    {
+        get
+        {
+            if (arrowPool == null)
+                arrowPool =
+                    new ObjectPool<Arrow>(
+                        CreateArrow,
+                        OnTakeFromPool,
+                        OnReturnedToPool,
+                        OnDestroyPoolObject,
+                        true,
+                        stackDefaultCapacity,
+                        maxPoolSize);
+            return arrowPool;
+        }
+    }
 
-    //private Arrow CreateArrow()
-    //{
-    //    Arrow arrow = Instantiate(arrowPrefab, transform.position, transform.rotation);
-    //    arrow.SetPool(arrowPool);
-    //    return arrow;
-    //}
+    private Arrow CreateArrow()
+    {
+        Arrow arrow = Instantiate(arrowPrefab, transform.position, transform.rotation);
+        arrow.arrowPool = ArrowPool;
+        return arrow;
+    }
 
-    //private void OnGet(Arrow arrow)
-    //{
-    //    arrow.gameObject.SetActive(true);
-    //}
+    private void OnTakeFromPool(Arrow arrow)
+    {
+        arrow.gameObject.SetActive(true);
+        
+    }
 
-    //private void OnRelease(Arrow arrow)
-    //{
-    //    arrow.gameObject.SetActive(false);
-    //}
+    private void OnReturnedToPool(Arrow arrow)
+    {
+        arrow.gameObject.SetActive(false);
+        
+    }
 
-    //private void OnDestroyArrow(Arrow arrow)
-    //{
-    //    Destroy(arrow.gameObject);
-    //}
+    private void OnDestroyPoolObject(Arrow arrow)
+    {
+        Destroy(arrow.gameObject);
+        
+    }
 
     // Start is called before the first frame update
     private void Start()
@@ -70,10 +87,12 @@ public class Bow : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        timer += Time.deltaTime;
+        if (Input.GetMouseButtonDown(0) && timer >= fireDelay) 
         {
+            timer = 0f;
             animator.SetBool("IsFiring", true);
-            //arrowPool.Get();
+            //ArrowPool.Get();
             Fire();
             //Debug.Log("down");
         }
@@ -98,8 +117,10 @@ public class Bow : MonoBehaviour
 
     private void Fire()
     {
-        Arrow arrow = Instantiate(arrowPrefab, transform.position, transform.rotation);
-        arrow.GetComponent<Rigidbody2D>().velocity = transform.up * fireForce;
+        var arrow = ArrowPool.Get();
+        arrow.transform.position = transform.position;
+        arrow.Damage = damage;
+        arrow.GetComponent<Rigidbody2D>().velocity = transform.up * force;
     }
 
     private void faceMouse()
@@ -116,13 +137,5 @@ public class Bow : MonoBehaviour
         return arc;
     }
 
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (collision.collider.CompareTag("Enemy"))
-    //    {
-    //        Debug.Log("hit");
-    //        Destroy(gameObject);
-    //    }
-
-    //}
+    
 }
