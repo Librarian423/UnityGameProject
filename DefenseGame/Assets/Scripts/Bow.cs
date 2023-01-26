@@ -115,4 +115,14 @@ public class Bow : MonoBehaviour
             0.5f * Physics2D.gravity * (point * point);
         return arc;
     }
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.collider.CompareTag("Enemy"))
+    //    {
+    //        Debug.Log("hit");
+    //        Destroy(gameObject);
+    //    }
+
+    //}
 }
