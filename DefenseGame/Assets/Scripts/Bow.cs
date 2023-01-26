@@ -1,24 +1,62 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 using static UnityEngine.GraphicsBuffer;
 
 public class Bow : MonoBehaviour
 {
     private Animator animator;
+
+    //Projectile Track
     private Vector2 mousePoint;
     private Vector2 direction;
 
     public GameObject dotPrefab;
     public GameObject[] dots;
     public int dotCount = 20;
-
     public float force = 14f;
 
-    //private Animator animator;
-    
+    //Arrow Pool
+    //private IObjectPool<Arrow> arrowPool;
+
+    public Arrow arrowPrefab;
+    public float fireForce = 14f;
+
+    //private void Awake()
+    //{
+    //    arrowPool = new ObjectPool<Arrow>(
+    //        CreateArrow,
+    //        OnGet,
+    //        OnRelease,
+    //        OnDestroyArrow,
+    //        maxSize: 10);
+    //}
+
+    //private Arrow CreateArrow()
+    //{
+    //    Arrow arrow = Instantiate(arrowPrefab, transform.position, transform.rotation);
+    //    arrow.SetPool(arrowPool);
+    //    return arrow;
+    //}
+
+    //private void OnGet(Arrow arrow)
+    //{
+    //    arrow.gameObject.SetActive(true);
+    //}
+
+    //private void OnRelease(Arrow arrow)
+    //{
+    //    arrow.gameObject.SetActive(false);
+    //}
+
+    //private void OnDestroyArrow(Arrow arrow)
+    //{
+    //    Destroy(arrow.gameObject);
+    //}
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         animator = GetComponent<Animator>();
         dots = new GameObject[dotCount];
@@ -30,17 +68,19 @@ public class Bow : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
             animator.SetBool("IsFiring", true);
-            Debug.Log("down");
+            //arrowPool.Get();
+            Fire();
+            //Debug.Log("down");
         }
         if (Input.GetMouseButtonUp(0))
         {
             animator.SetBool("IsFiring", false);
-            Debug.Log("up");
+            //Debug.Log("up");
         }
         mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -54,6 +94,12 @@ public class Bow : MonoBehaviour
         {
             dots[i].transform.position = DrawArc(i * 0.1f);
         }
+    }
+
+    private void Fire()
+    {
+        Arrow arrow = Instantiate(arrowPrefab, transform.position, transform.rotation);
+        arrow.GetComponent<Rigidbody2D>().velocity = transform.up * fireForce;
     }
 
     private void faceMouse()
