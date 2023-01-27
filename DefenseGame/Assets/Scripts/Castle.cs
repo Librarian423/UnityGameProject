@@ -21,9 +21,9 @@ public class Castle : MonoBehaviour
     {
         health -= damage;
         UIManager.instance.UpdateHealthBar(health);
-        //if (health <= 0)
-        //{
-            
-        //}
+        if (health <= 0)
+        {
+            GameManager.instance.GameOver();
+        }
     }
 }

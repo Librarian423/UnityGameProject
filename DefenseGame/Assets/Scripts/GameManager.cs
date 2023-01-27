@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,16 +23,16 @@ public class GameManager : MonoBehaviour
     private bool isPause = false;
     public bool IsPause { get { return isPause; } }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-       
+        // 씬에 싱글톤 오브젝트가 된 다른 GameManager 오브젝트가 있다면
+        if (instance != this)
+        {
+            // 자신을 파괴
+            Destroy(gameObject);
+        }
+        Resume();
     }
 
     public void Pause()
@@ -46,4 +47,8 @@ public class GameManager : MonoBehaviour
         isPause = false;
     }
 
+    public void GameOver()
+    {
+        SceneManager.LoadScene(2);
+    }
 }
