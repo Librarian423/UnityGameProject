@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - Castle
   layers:
   - Default
   - TransparentFX
@@ -15,12 +17,12 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Line
+  - Player
+  - Arrow
+  - FireBall
+  - Building
+  - Dragon
   - 
   - 
   - 
