@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 using UnityEngine.XR;
+using UnityEngine.EventSystems;
 using static UnityEngine.GraphicsBuffer;
 
 public class Bow : MonoBehaviour
@@ -87,8 +88,14 @@ public class Bow : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (GameManager.instance.IsPause)
+        {
+            return;
+        }
+
         timer += Time.deltaTime;
-        if (Input.GetMouseButtonDown(0) && timer >= fireDelay) 
+
+        if (Input.GetMouseButtonDown(0) && timer >= fireDelay && !EventSystem.current.IsPointerOverGameObject()) 
         {
             timer = 0f;
             animator.SetBool("IsFiring", true);
@@ -101,6 +108,7 @@ public class Bow : MonoBehaviour
             animator.SetBool("IsFiring", false);
             //Debug.Log("up");
         }
+
         mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         Vector2 bowpos = transform.position;
@@ -115,7 +123,7 @@ public class Bow : MonoBehaviour
         }
     }
 
-    private void Fire()
+    public void Fire()
     {
         var arrow = ArrowPool.Get();
         arrow.transform.position = transform.position;

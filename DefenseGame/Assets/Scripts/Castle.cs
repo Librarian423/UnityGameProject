@@ -20,6 +20,7 @@ public class Castle : MonoBehaviour
     public void OnHit(float damage)
     {
         health -= damage;
+        UIManager.instance.UpdateHealthBar(health);
         //if (health <= 0)
         //{
             

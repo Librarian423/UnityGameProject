@@ -22,17 +22,17 @@ public class FireBall : MonoBehaviour
         transform.Translate(Vector2.left * speed * Time.deltaTime);
     }
 
-    //private void Move()
-    //{
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
 
-    //}
-   
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Castle"))
         {
-            Debug.Log("hit");
-            var target = collision.gameObject.GetComponent<Dragon>();
+            //Debug.Log("hit");
+            var target = collision.gameObject.GetComponent<Castle>();
             if (target != null)
             {
                 target.OnHit(Damage);

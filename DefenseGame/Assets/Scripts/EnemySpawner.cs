@@ -11,6 +11,7 @@ public class EnemySpawner : MonoBehaviour
 
     private List<Dragon> dragons = new List<Dragon>();
     private int wave = 0;
+    private int waveCount = 0;
 
     public float waitTimer = 1f;
     private float timer = 1f;
@@ -45,11 +46,13 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnWave()
     {
+        waveCount++;
         int gdCount = waveDatas[wave].goldDragonCount;
         int rdCount = waveDatas[wave].redDragonCount;
 
         MakeGoldDragon(gdCount);
         MakeRedDragon(rdCount);
+        UIManager.instance.UpdateWaveText(waveCount);
         wave++;
     }
 
