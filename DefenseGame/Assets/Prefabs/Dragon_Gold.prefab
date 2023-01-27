@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9110070270409812384}
   - component: {fileID: 9110070270409812388}
   - component: {fileID: 9110070270409812387}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Dragon_Gold
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -146,6 +146,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  speed: 2
-  damage: 10
-  moveDistance: 10
+  fireBallPrefab: {fileID: 5415702330194425053, guid: ae8250b829c8144c89ddba447f21c9de, type: 3}
