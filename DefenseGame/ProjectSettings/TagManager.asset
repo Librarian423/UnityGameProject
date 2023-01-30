@@ -40,6 +40,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
   - name: Background
     uniqueID: 3025673155
     locked: 0
@@ -52,18 +55,15 @@ TagManager:
   - name: Water
     uniqueID: 2841239327
     locked: 0
-  - name: Line
-    uniqueID: 1530488585
-    locked: 0
   - name: Arrow
     uniqueID: 257441641
     locked: 0
   - name: FireBall
     uniqueID: 3918015465
     locked: 0
+  - name: Line
+    uniqueID: 1530488585
+    locked: 0
   - name: Dragon
     uniqueID: 2032706139
-    locked: 0
-  - name: Default
-    uniqueID: 0
     locked: 0

@@ -1388,7 +1388,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       lazer_purple_SpriteSheet_38: 2085693979
-      lazer_purple_SpriteSheet_54: -845377193
+      lazer_purple_SpriteSheet_25: 736097485
       lazer_purple_SpriteSheet_49: -1092702081
       lazer_purple_SpriteSheet_48: -268789780
       lazer_purple_SpriteSheet_12: 641906882
@@ -1444,8 +1444,8 @@ TextureImporter:
       lazer_purple_SpriteSheet_11: -938032992
       lazer_purple_SpriteSheet_41: 1023046311
       lazer_purple_SpriteSheet_35: -1182646496
+      lazer_purple_SpriteSheet_54: -845377193
       lazer_purple_SpriteSheet_4: 241326826
-      lazer_purple_SpriteSheet_25: 736097485
       lazer_purple_SpriteSheet_33: -1232504286
   spritePackingTag: 
   pSDRemoveMatte: 0
