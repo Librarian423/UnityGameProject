@@ -8,10 +8,10 @@ public class Dragon : MonoBehaviour
     public float health = 100f;
     private float speed = 2f;
     private float damage = 10f;
-    private float moveDistance = 10f;
+    private float movePos = 0f;
     private float fireDelay = 2f;
 
-    private float currentDistance;
+    //private float currentDistance;
     private bool isDead = false;
     private float fireTimer;
 
@@ -23,7 +23,7 @@ public class Dragon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentDistance = transform.position.x;
+        //currentDistance = transform.position.x;
         fireTimer = fireDelay;
     }
 
@@ -36,11 +36,11 @@ public class Dragon : MonoBehaviour
         }
         //currentDistance = transform.position.x;
         fireTimer += Time.deltaTime;
-        if (transform.position.x > 0f)
+        if (transform.position.x >= movePos)
         {
             transform.Translate(Vector2.left * speed * Time.deltaTime);
         }
-        else if (transform.position.x <= 0f && fireTimer >= fireDelay) 
+        else if (transform.position.x < movePos && fireTimer >= fireDelay) 
         {
             fireTimer = 0;
             Fire();
@@ -71,7 +71,7 @@ public class Dragon : MonoBehaviour
         this.health = health;
         this.speed = speed;
         this.damage = damage;
-        this.moveDistance = moveDistance;
+        this.movePos = moveDistance;
         this.fireDelay = fireDelay;
     }
 

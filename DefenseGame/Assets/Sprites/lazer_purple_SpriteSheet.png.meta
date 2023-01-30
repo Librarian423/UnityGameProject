@@ -1,0 +1,1455 @@
+fileFormatVersion: 2
+guid: b2c4cdc9ad1774f808bc70d5139b5971
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 1868
+        width: 136
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87ffe738b35dd4a5ab9ba5ef855bfa5a
+      internalID: 1201710593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 709
+        y: 1669
+        width: 113
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a52df8f5055b441298ecd0b0a0a0238e
+      internalID: 453210301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 1201
+        y: 1550
+        width: 167
+        height: 498
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a7140b8fb22a40df8f697265d2b2aa4
+      internalID: 1158582300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 1735
+        y: 1548
+        width: 116
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd4128c4593c9487fb5d19d3090ef554
+      internalID: -865465335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 1024
+        width: 110
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1921c5c42c160409893e38a85693c8af
+      internalID: 241326826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 1024
+        width: 145
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f5734f2f001249ebb31cd22979c50b9
+      internalID: 37110845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 514
+        width: 122
+        height: 507
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5904125f5b10d49289af607cf3206aff
+      internalID: -2076813213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 515
+        width: 128
+        height: 490
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe5190fa86bad42239eeaaf40bed78b5
+      internalID: -1587932132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 1235
+        y: 899
+        width: 48
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16c3c83042fd84289a52088cfb1869d3
+      internalID: 100046163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 898
+        width: 37
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e28faef56aa2431181acb43afafb4f4
+      internalID: 1935380271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 1283
+        y: 879
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 065b53d01ee3344f7814c4c35f51d83d
+      internalID: 498469239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 1793
+        y: 872
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7239fb141ad448ee865f3c8ed37874f
+      internalID: -938032992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 1217
+        y: 717
+        width: 104
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3f8d5e02a91f41c7bba927cae658d46
+      internalID: 641906882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 1736
+        y: 714
+        width: 93
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 539bce9bd09424658bda4f1187a21ee1
+      internalID: 274106204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 1768
+        y: 709
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 992160d0f8b3f4b42ac15add94f022d2
+      internalID: -493617367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 1278
+        y: 694
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84a0751ed2c724638b862bb7a0556fb2
+      internalID: -137838545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 1790
+        y: 687
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8702c44022e064fda819708a50267935
+      internalID: 692794397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_17
+      rect:
+        serializedVersion: 2
+        x: 1230
+        y: 602
+        width: 97
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a15a47956f5bb49be85ba010311c40c6
+      internalID: 1409860609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_18
+      rect:
+        serializedVersion: 2
+        x: 1754
+        y: 649
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9fc0353623af4d8bbc632f3df4ab442
+      internalID: 1503366523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_19
+      rect:
+        serializedVersion: 2
+        x: 1770
+        y: 654
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50ed3560685824669a54fda1f4ae8ca0
+      internalID: 708878661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_20
+      rect:
+        serializedVersion: 2
+        x: 1798
+        y: 627
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2b10b8eb9c4d45c6b5cf39efaa20209
+      internalID: -965280314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_21
+      rect:
+        serializedVersion: 2
+        x: 1752
+        y: 603
+        width: 37
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b8eadf2732444a2f909b0d29a694030
+      internalID: 2035219431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_22
+      rect:
+        serializedVersion: 2
+        x: 1790
+        y: 593
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f62ab5df6e00d43d597b1d78dc9261b1
+      internalID: -323465527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_23
+      rect:
+        serializedVersion: 2
+        x: 1252
+        y: 519
+        width: 89
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42cd7246a67c744d2a948d6583960f14
+      internalID: -395742196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_24
+      rect:
+        serializedVersion: 2
+        x: 1271
+        y: 573
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c74d90e1eb234428941677ea0bd63a4
+      internalID: 16758566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_25
+      rect:
+        serializedVersion: 2
+        x: 1785
+        y: 563
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc71525ff640b427cbde3e4970a69cc6
+      internalID: 736097485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_26
+      rect:
+        serializedVersion: 2
+        x: 1816
+        y: 534
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5282ecb9cd724a72890633b37e2c63c
+      internalID: -264018892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_27
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 352
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 294e4da3073524f569b9774ad5f9ce6a
+      internalID: -1897691479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_28
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 320
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d04ab6f6a7cd4ffb9042371778fa4c9
+      internalID: -1239494630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_29
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 322
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f5399bbd3bd842f4857e7481137320c
+      internalID: 596256925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_30
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 312
+        width: 58
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55e9eb9701da341b69388a236acb6213
+      internalID: 257893177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_31
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 235
+        width: 70
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee475afe6db144e2faf81ab64172ad7f
+      internalID: 1962597175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_32
+      rect:
+        serializedVersion: 2
+        x: 1759
+        y: 138
+        width: 73
+        height: 189
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f40c41eb2ec5a4a11b2207a8ba452b37
+      internalID: -453879929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_33
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 281
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a8ced6838c7546dca62e0f260748fd4
+      internalID: -1232504286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_34
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 275
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b79c8eae924884f28a362851419e2a88
+      internalID: -664646998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_35
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 247
+        width: 47
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7552f26f97ca142eeae205de4dd759f4
+      internalID: -1182646496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_36
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 255
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: def8ca68cab40486c97ccd08b414d295
+      internalID: 903547922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_37
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 213
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7baa681e0c7a54c51bd959dd6c1fd4b6
+      internalID: 415300960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_38
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 204
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cdaf7de960b041d4afa75621f4062e6
+      internalID: 2085693979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_39
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 204
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 845e9b472ca704230ae851f7c4e8195d
+      internalID: -2104878442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_40
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 187
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9da371138fa494e6b8f1ccb05dd698a2
+      internalID: 663310591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_41
+      rect:
+        serializedVersion: 2
+        x: 1263
+        y: 193
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 550cba85afe3743119bd2ae318256fac
+      internalID: 1023046311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_42
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 166
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2dbb72eabead482ab31e9dbbb09390e
+      internalID: 1552793224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_43
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 177
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03dce1c47467446738c37d801cbdc822
+      internalID: -1438825495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_44
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 157
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62a0bf5faee044f5ca5e0d1b0f95692b
+      internalID: -1063484088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_45
+      rect:
+        serializedVersion: 2
+        x: 1257
+        y: 147
+        width: 29
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb6cc37414b9548b8ac113cc25ecf255
+      internalID: -127746588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_46
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 129
+        width: 27
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57e36ae8ac9864146854f3f3543284c4
+      internalID: -783723808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_47
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 121
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07c6bed71f9524792bb16a1b0533d4df
+      internalID: -573557597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_48
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 121
+        width: 22
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ad75e69ffd3b41e8903d836ed6115c1
+      internalID: -268789780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_49
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 107
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75d5fdb0c1bda42039f82f287c7ed49c
+      internalID: -1092702081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_50
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 97
+        width: 34
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32df6a040486443809f0997e354d9a4a
+      internalID: 241295900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_51
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 111
+        width: 21
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 506b1b85ee03141e39e889d26f7e36e6
+      internalID: 1443307334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_52
+      rect:
+        serializedVersion: 2
+        x: 1762
+        y: 98
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e71d24a2c715427bbcf7503fc62988c
+      internalID: 1641582147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_53
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 41
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5346fd39d266541be87b3b19166a06bd
+      internalID: -1740641253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_54
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 74
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dbe866ae459d49938f9153f9b2256e8
+      internalID: -845377193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_55
+      rect:
+        serializedVersion: 2
+        x: 763
+        y: 32
+        width: 15
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3a9109032e134614b6ee7dd537fa9e4
+      internalID: -1903117602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_56
+      rect:
+        serializedVersion: 2
+        x: 1266
+        y: 19
+        width: 32
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccc3c01a4ee804f40a1f3f9e3fbc0bce
+      internalID: 831805803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_57
+      rect:
+        serializedVersion: 2
+        x: 1779
+        y: 6
+        width: 29
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f6f010c7874d4261a283530955721fc
+      internalID: -154761743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_58
+      rect:
+        serializedVersion: 2
+        x: 1204
+        y: 1032
+        width: 165
+        height: 510
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa4018bfb6e634e40bc72a7538c7b944
+      internalID: 384442235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_purple_SpriteSheet_59
+      rect:
+        serializedVersion: 2
+        x: 1737
+        y: 1037
+        width: 115
+        height: 503
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67276d95763d74a39850a03869c5d596
+      internalID: 43824586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      lazer_purple_SpriteSheet_38: 2085693979
+      lazer_purple_SpriteSheet_54: -845377193
+      lazer_purple_SpriteSheet_49: -1092702081
+      lazer_purple_SpriteSheet_48: -268789780
+      lazer_purple_SpriteSheet_12: 641906882
+      lazer_purple_SpriteSheet_20: -965280314
+      lazer_purple_SpriteSheet_28: -1239494630
+      lazer_purple_SpriteSheet_8: 100046163
+      lazer_purple_SpriteSheet_18: 1503366523
+      lazer_purple_SpriteSheet_44: -1063484088
+      lazer_purple_SpriteSheet_52: 1641582147
+      lazer_purple_SpriteSheet_6: -2076813213
+      lazer_purple_SpriteSheet_22: -323465527
+      lazer_purple_SpriteSheet_45: -127746588
+      lazer_purple_SpriteSheet_21: 2035219431
+      lazer_purple_SpriteSheet_2: 1158582300
+      lazer_purple_SpriteSheet_55: -1903117602
+      lazer_purple_SpriteSheet_56: 831805803
+      lazer_purple_SpriteSheet_43: -1438825495
+      lazer_purple_SpriteSheet_15: -137838545
+      lazer_purple_SpriteSheet_3: -865465335
+      lazer_purple_SpriteSheet_29: 596256925
+      lazer_purple_SpriteSheet_26: -264018892
+      lazer_purple_SpriteSheet_19: 708878661
+      lazer_purple_SpriteSheet_7: -1587932132
+      lazer_purple_SpriteSheet_14: -493617367
+      lazer_purple_SpriteSheet_46: -783723808
+      lazer_purple_SpriteSheet_36: 903547922
+      lazer_purple_SpriteSheet_50: 241295900
+      lazer_purple_SpriteSheet_47: -573557597
+      lazer_purple_SpriteSheet_34: -664646998
+      lazer_purple_SpriteSheet_39: -2104878442
+      lazer_purple_SpriteSheet_16: 692794397
+      lazer_purple_SpriteSheet_23: -395742196
+      lazer_purple_SpriteSheet_57: -154761743
+      lazer_purple_SpriteSheet_53: -1740641253
+      lazer_purple_SpriteSheet_13: 274106204
+      lazer_purple_SpriteSheet_59: 1474704328
+      lazer_purple_SpriteSheet_32: -453879929
+      lazer_purple_SpriteSheet_42: 1552793224
+      lazer_purple_SpriteSheet_24: 16758566
+      lazer_purple_SpriteSheet_31: 1962597175
+      lazer_purple_SpriteSheet_30: 257893177
+      lazer_purple_SpriteSheet_1: 453210301
+      lazer_purple_SpriteSheet_37: 415300960
+      lazer_purple_SpriteSheet_51: 1443307334
+      lazer_purple_SpriteSheet_0: 1201710593
+      lazer_purple_SpriteSheet_10: 498469239
+      lazer_purple_SpriteSheet_27: -1897691479
+      lazer_purple_SpriteSheet_17: 1409860609
+      lazer_purple_SpriteSheet_5: 37110845
+      lazer_purple_SpriteSheet_40: 663310591
+      lazer_purple_SpriteSheet_58: 384442235
+      lazer_purple_SpriteSheet_9: 1935380271
+      lazer_purple_SpriteSheet_11: -938032992
+      lazer_purple_SpriteSheet_41: 1023046311
+      lazer_purple_SpriteSheet_35: -1182646496
+      lazer_purple_SpriteSheet_4: 241326826
+      lazer_purple_SpriteSheet_25: 736097485
+      lazer_purple_SpriteSheet_33: -1232504286
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

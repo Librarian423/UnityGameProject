@@ -12,7 +12,7 @@ public class ChangeScene : MonoBehaviour
         GameScene,
         GameOver,
     }
-    
+
     public void OnChangeScene(Scenes scene)
     {
         SceneManager.LoadScene((int)scene);

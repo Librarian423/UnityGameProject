@@ -30,8 +30,13 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        hpBar.value = 100f;
+        if (hpBar != null)
+        {
+            hpBar.value = 100f;
+        }
+       
     }
+
     // 적 웨이브 텍스트 갱신
     public void UpdateWaveText(int wave)
     {
@@ -43,10 +48,10 @@ public class UIManager : MonoBehaviour
     {
         hpBar.value = health;
     }
-    //// 게임 오버 UI 활성화
-    //public void SetActiveGameoverUI(bool active)
-    //{
-    //    gameoverUI.SetActive(active);
-    //}
+
+    public void UdateSurvivedWave(int wave)
+    {
+        waveText.text = "Survived " + wave + " waves";
+    }
 
 }

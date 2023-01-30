@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     private bool isPause = false;
     public bool IsPause { get { return isPause; } }
 
+    public static int wave;
 
     private void Awake()
     {
@@ -32,7 +33,15 @@ public class GameManager : MonoBehaviour
             // 자신을 파괴
             Destroy(gameObject);
         }
-        Resume();
+        
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            Resume();
+        }
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            UIManager.instance.UdateSurvivedWave(wave);
+        }
     }
 
     public void Pause()
@@ -49,6 +58,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        
         SceneManager.LoadScene(2);
     }
 }

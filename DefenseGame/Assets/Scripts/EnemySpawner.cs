@@ -53,6 +53,7 @@ public class EnemySpawner : MonoBehaviour
         MakeGoldDragon(gdCount);
         MakeRedDragon(rdCount);
         UIManager.instance.UpdateWaveText(waveCount);
+        SetWaveCount();
         wave++;
     }
 
@@ -78,7 +79,7 @@ public class EnemySpawner : MonoBehaviour
         float health = dragonDatas[(int)type].health;
         float speed = dragonDatas[(int)type].speed;
         float damage = dragonDatas[(int)type].damage;
-        float moveDistance = dragonDatas[(int)type].moveDistance;
+        float moveDistance = dragonDatas[(int)type].movePos;
         float fireDelay = dragonDatas[(int)type].fireDelay;
 
         Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
@@ -102,5 +103,10 @@ public class EnemySpawner : MonoBehaviour
         // 적 사망시 점수 상승
         //enemy.onDeath += () => GameManager.instance.AddScore(100);
 
+    }
+
+    private void SetWaveCount()
+    {
+        GameManager.wave = waveCount;
     }
 }
