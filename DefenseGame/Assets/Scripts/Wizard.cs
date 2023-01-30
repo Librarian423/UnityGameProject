@@ -38,7 +38,7 @@ public class Wizard : MonoBehaviour
             case AttackType.Area:
                 magic = Instantiate(attackPrefab, transform.position, Quaternion.identity);
                 magic.GetComponent<AreaAttack>().Damage = damage;
-                //magic.transform.position.Set(10, transform.position.y, transform.position.z);
+                magic.transform.position = new Vector3(attackDistance, 0, 0);
                 break;
         }
     }
@@ -53,17 +53,11 @@ public class Wizard : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.A))
         {
-            //Debug.Log("attack");
-            //particle.transform.position = Vector3.zero;
-            ////particle.gameObject.SetActive(true);
-            ////particle.Play();
-            //Attack();
+            
             magic.SetActive(true);
             magic.GetComponent<AreaAttack>().Attack();
 
         }
-        //magic.GetComponent<AreaAttack>().Attack();
-
     }
 
     private void SetStats()

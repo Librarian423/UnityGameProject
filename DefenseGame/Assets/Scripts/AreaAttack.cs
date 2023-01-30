@@ -15,7 +15,7 @@ public class AreaAttack : MonoBehaviour, IMagics
     public void Attack()
     {
        //Debug.Log("attack");
-        particle.transform.position = Vector3.zero;
+        //particle.transform.position = Vector3.zero;
         gameObject.SetActive(true);
         particle.Play();
         isAttak = true;

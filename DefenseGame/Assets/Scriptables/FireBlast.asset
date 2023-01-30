@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0d998cc029f148ce9802321a29c28db, type: 3}
-  m_Name: WizardData
+  m_Name: FireBlast
   m_EditorClassIdentifier: 
-  type: 2
+  type: 0
   attackSpeed: 0
-  damage: 50
-  attackDistance: 3
-  attackPrefab: {fileID: 5051005858741850623, guid: ad5e61481651945f78bf97af94dfd098, type: 3}
+  damage: 20
+  attackDistance: 10
+  attackPrefab: {fileID: 834500284234291228, guid: 55e8fffae17b54c3e917e37bb7155712, type: 3}
