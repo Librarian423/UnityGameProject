@@ -26,8 +26,6 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI waveText;
     public Slider hpBar;
 
-    //public GameObject gameoverUI; // 게임 오버시 활성화할 UI 
-
     private void Start()
     {
         if (hpBar != null)

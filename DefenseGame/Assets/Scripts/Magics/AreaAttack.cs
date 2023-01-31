@@ -5,28 +5,22 @@ using static UnityEngine.ParticleSystem;
 
 public class AreaAttack : MonoBehaviour, IMagics
 {
-    //private Animator animator;
     private ParticleSystem particle;
-    private BoxCollider2D hitBox;
     private bool isAttak = false;
-    //private float damage;
     public float Damage { get; set; }
 
-    public void Attack()
+    public void Attack(Vector2 pos)
     {
-       //Debug.Log("attack");
-        //particle.transform.position = Vector3.zero;
+        gameObject.transform.position = new Vector3(pos.x, 0, 0);
         gameObject.SetActive(true);
         particle.Play();
         isAttak = true;
-
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        particle = GetComponent<ParticleSystem>();
-        hitBox = GetComponent<BoxCollider2D>();        
+        particle = GetComponent<ParticleSystem>();  
     }
 
     // Update is called once per frame

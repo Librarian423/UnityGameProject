@@ -95,7 +95,10 @@ public class Bow : MonoBehaviour
 
         timer += Time.deltaTime;
 
-        if (Input.GetMouseButtonDown(0) && timer >= fireDelay && !EventSystem.current.IsPointerOverGameObject()) 
+        if (GameManager.instance.IsArrowAble &&
+            Input.GetMouseButtonDown(0) &&
+            timer >= fireDelay &&
+            !EventSystem.current.IsPointerOverGameObject()) 
         {
             timer = 0f;
             animator.SetBool("IsFiring", true);

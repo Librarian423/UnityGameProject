@@ -11,5 +11,5 @@ public class WizardData : ScriptableObject
     public float damage = 20f;
     public float attackDistance = 10f;
     public GameObject attackPrefab;
-    public IMagics magic;
+    public float attackHitTime = 0.2f;
 }

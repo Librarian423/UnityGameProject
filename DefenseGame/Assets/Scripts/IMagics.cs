@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IMagics
 {
-    void Attack();
+    void Attack(Vector2 pos);
 }

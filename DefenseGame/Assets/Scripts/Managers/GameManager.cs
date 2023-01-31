@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
 
     private bool isPause = false;
     public bool IsPause { get { return isPause; } }
+    private bool isArrowAble = true;
+    public bool IsArrowAble { get { return isArrowAble; } set { isArrowAble = value; } }
 
     public static int wave;
 
