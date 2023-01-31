@@ -31,16 +31,16 @@ public class AreaAttack : MonoBehaviour, IMagics
         {
             gameObject.SetActive(false);
             isAttak = false;
-            //Debug.Log("stop");
+            
         }
     }
-    
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Debug.Log("enter");
         if (isAttak && collision.gameObject.tag == "Enemy")
         {
-            Debug.Log("hit");
+            //Debug.Log("hit");
             var target = collision.gameObject.GetComponent<Dragon>();
             if (target != null)
             {

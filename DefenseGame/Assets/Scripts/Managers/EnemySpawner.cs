@@ -95,8 +95,11 @@ public class EnemySpawner : MonoBehaviour
 
         // 적의 onDeath 이벤트에 익명 메서드 등록
         // 사망한 적을 리스트에서 제거
+        dragon.onDeath += () => PropertySpawner.instance.CreateCorp((int)type, dragon.transform.position);
         dragon.onDeath += () => dragons.Remove(dragon);
         dragon.onDeath += () => timer = 0f;
+        dragon.onDeath += () => PropertyManager.instance.SetMoney(100);
+
 
         // 사망한 적을 10 초 뒤에 파괴
         //enemy.onDeath += () => Destroy(enemy.gameObject, 10f);

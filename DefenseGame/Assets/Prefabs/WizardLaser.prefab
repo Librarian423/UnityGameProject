@@ -119,3 +119,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 7b2d8241bd29b4f37937e5846e5be4a6, type: 2}
+  rangeArea: {fileID: 0}

@@ -24,7 +24,7 @@ TagManager:
   - Building
   - Dragon
   - Clickable
-  - 
+  - Resource
   - 
   - 
   - 
@@ -52,6 +52,15 @@ TagManager:
   - name: Building
     uniqueID: 3994862241
     locked: 0
+  - name: Line
+    uniqueID: 1530488585
+    locked: 0
+  - name: Dragon
+    uniqueID: 2032706139
+    locked: 0
+  - name: Ship
+    uniqueID: 2130527069
+    locked: 0
   - name: Water
     uniqueID: 2841239327
     locked: 0
@@ -60,10 +69,4 @@ TagManager:
     locked: 0
   - name: FireBall
     uniqueID: 3918015465
-    locked: 0
-  - name: Line
-    uniqueID: 1530488585
-    locked: 0
-  - name: Dragon
-    uniqueID: 2032706139
     locked: 0

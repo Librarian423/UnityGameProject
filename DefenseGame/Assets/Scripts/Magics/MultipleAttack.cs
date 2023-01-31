@@ -14,13 +14,12 @@ public class MultipleAttack : MonoBehaviour, IMagics
 
     public void Attack(Vector2 pos)
     {
-        Debug.Log("attack");
-        Debug.Log(pos.x);
+        //Debug.Log("attack");
+        //Debug.Log(pos.x);
         gameObject.transform.position = pos;
         gameObject.SetActive(true);
         particle.Play();
         isAttak = true;
-        //transform.Translate(Vector2.right * Speed * Time.deltaTime);
     }
 
     // Start is called before the first frame update
@@ -48,10 +47,9 @@ public class MultipleAttack : MonoBehaviour, IMagics
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        //Debug.Log("enter");
         if (isAttak && timer <= 0 && collision.gameObject.tag == "Enemy") 
         {
-            Debug.Log("hit");
+            //Debug.Log("hit");
             timer = AttackTimer;
             var target = collision.gameObject.GetComponent<Dragon>();
             if (target != null)

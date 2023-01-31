@@ -46,7 +46,7 @@ public class Wizard : MonoBehaviour
                 magic.GetComponent<MultipleAttack>().Damage = damage;
                 magic.GetComponent<MultipleAttack>().Speed = attackSpeed;
                 magic.GetComponent<MultipleAttack>().AttackTimer = attackTimer;
-                magic.transform.position = new Vector3(0, 0, 0);
+                //magic.transform.position = new Vector3(0, 0, 0);
                 break;
             case AttackType.Area:
                 magic = Instantiate(attackPrefab, transform.position, Quaternion.identity);
@@ -73,10 +73,10 @@ public class Wizard : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             animator.SetBool("Attack", false);
-            GameManager.instance.IsArrowAble = true;
+            
         }
 
-        if (rangeArea.active) 
+        if (rangeArea.activeSelf) 
         {
             SetRangePosition();
         }
@@ -84,10 +84,14 @@ public class Wizard : MonoBehaviour
 
     public void OnClickButton()
     {
-        magic.SetActive(true);
+
+        if (GameManager.instance.IsPause) 
+        {
+            return;
+        }
+        rangeArea.SetActive(true);
         isClick = true;
-        GameManager.instance.IsArrowAble = false;
-        Debug.Log("fire");
+        GameManager.instance.IsArrowAble = false; 
     }
 
     private void Attack()
@@ -128,7 +132,7 @@ public class Wizard : MonoBehaviour
     {
         isClick = false;
         rangeArea.SetActive(false);
-        //animator.SetBool("Attack", false);
+        GameManager.instance.IsArrowAble = true;
     }
 
     private void SetStats()

@@ -20,6 +20,9 @@ public class Dragon : MonoBehaviour
     //Fireball
     public FireBall fireBallPrefab;
 
+    //Ragdoll
+    //public GameObject resourcePrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -80,7 +83,10 @@ public class Dragon : MonoBehaviour
         if (onDeath != null)
         {
             onDeath();
+            //PropertySpawner.instance.CreateCorp(PropertySpawner.DragonType.Gold, transform.position);
         }
+        //Instantiate<GameObject>(resourcePrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
+        
     }
 }

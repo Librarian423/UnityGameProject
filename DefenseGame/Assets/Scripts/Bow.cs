@@ -88,7 +88,7 @@ public class Bow : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (GameManager.instance.IsPause)
+        if (GameManager.instance.IsPause && !GameManager.instance.IsArrowAble) 
         {
             return;
         }
