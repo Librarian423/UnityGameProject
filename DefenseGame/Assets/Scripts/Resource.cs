@@ -5,7 +5,7 @@ using System;
 
 public class Resource : MonoBehaviour
 {
-    public IResource resource;
+    public ResourceData resource;
 
     private int meat = 0;
     private int gold = 0;
