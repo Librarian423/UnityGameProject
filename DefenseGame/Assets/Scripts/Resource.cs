@@ -27,15 +27,16 @@ public class Resource : MonoBehaviour
     {
         timer -= Time.deltaTime;
 
-        if (timer <= 0 || (meat <= 0 && gold <= 0)) 
+        if (timer <= 0 || gold <= 0) 
         {
             //Destroy(gameObject);
             onComplete();
         }
     }
 
-    public void GetResources(int meat, int gold)
+    public void CollectResource(int meat, int gold)
     {
+        
         this.meat -= meat;
         this.gold -= gold;
     }

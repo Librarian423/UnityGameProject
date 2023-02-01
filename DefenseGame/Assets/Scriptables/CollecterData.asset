@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b31f813fe4da470794b0c9e69486585, type: 3}
-  m_Name: Resource1
+  m_Script: {fileID: 11500000, guid: 392f112923c474c5a9fb445a0ec6b6eb, type: 3}
+  m_Name: CollecterData
   m_EditorClassIdentifier: 
-  meat: 100
-  gold: 100
-  duration: 10
+  maxGold: 10
+  maxMeat: 10
+  speed: 3
+  collectSpeed: 1

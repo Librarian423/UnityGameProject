@@ -32,6 +32,39 @@ public class PropertySpawner : MonoBehaviour
         }
     }
 
+    public int GetResourcesCount()
+    {
+        if (resources != null)
+        {
+            return resources.Count;
+
+        }
+
+        return 0;
+    }
+
+    public List<Resource> GetResources()
+    {
+        return resources;
+    }
+
+    public Vector2[] GetResourcesPosition()
+    {
+        if (resources == null)
+        {
+            return null;
+        }
+
+        Vector2[] pos = new Vector2[resources.Count];
+
+        for (int i = 0; i < resources.Count; i++)
+        {
+            pos[i] = resources[i].transform.position;
+        }
+
+        return pos;
+    }
+
     public void CreateCorp(int type, Vector2 pos)
     {
 
