@@ -31,6 +31,10 @@ public class PropertyManager : MonoBehaviour
     public TextMeshProUGUI moneyText;
     public TextMeshProUGUI meatText;
 
+    [Header ("Buy and Sell")]
+    public int moneyAmount = 1000;
+    public int meatAmount = 1000;
+
     private void Awake()
     {
         // 씬에 싱글톤 오브젝트가 된 다른 GameManager 오브젝트가 있다면
@@ -68,5 +72,23 @@ public class PropertyManager : MonoBehaviour
         this.meat += meat;
         moneyText.text = this.money.ToString();
         meatText.text = this.meat.ToString();
+    }
+
+    public void ExchangeMoney()
+    {
+        if (money >= moneyAmount) 
+        {
+            SetMoney(-moneyAmount);
+            SetMeat(meatAmount);
+        }
+    }
+
+    public void ExchangeMeat()
+    {
+        if (meat >= meatAmount)
+        {
+            SetMeat(-meatAmount);
+            SetMoney(moneyAmount);
+        }
     }
 }

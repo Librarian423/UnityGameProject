@@ -25,9 +25,14 @@ public class UIManager : MonoBehaviour
 
     public TextMeshProUGUI waveText;
     public Slider hpBar;
+    
+    //Popups
+    [Header("PopUps")]
     public GameObject skillTree;
+    public GameObject pausePopUp;
 
     //Magic btns
+    [Header("Magic Buttons")]
     public GameObject fbBtn;
     public GameObject lBtn;
 
@@ -63,9 +68,32 @@ public class UIManager : MonoBehaviour
         skillTree.SetActive(true);
     }
 
+    private void OpenPausePopUp()
+    {
+        pausePopUp.SetActive(true);
+    }
+
+    private void ClosePausePopUp()
+    {
+        pausePopUp.SetActive(false);
+    }
+
+    public void PauseGame()
+    {
+        if (!skillTree.activeSelf)
+        {
+            GameManager.instance.Pause();
+            OpenPausePopUp();
+        }
+    }
+
     public void ResumeGame()
     {
-        GameManager.instance.Resume();
+        if (!skillTree.activeSelf)
+        {
+            GameManager.instance.Resume();
+            ClosePausePopUp();
+        }
     }
 
     public void SearchMagicButton(List<Magics> magics)
