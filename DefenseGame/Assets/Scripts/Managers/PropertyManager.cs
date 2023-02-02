@@ -25,8 +25,8 @@ public class PropertyManager : MonoBehaviour
     private int money = 0;
     private int meat = 0;
 
-    //public int Money { get { return money; } set { money = value; } }
-    //public int Meat { get { return meat; } set { meat = value; } }
+    public int Money { get { return money; }  }
+    public int Meat { get { return meat; } }
 
     public TextMeshProUGUI moneyText;
     public TextMeshProUGUI meatText;

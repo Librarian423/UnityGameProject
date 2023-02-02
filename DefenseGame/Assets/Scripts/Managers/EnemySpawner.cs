@@ -31,10 +31,22 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.instance.IsPause) 
+        {
+            return;
+        }
+
         timer += Time.deltaTime;
+
+        
+
         if (timer >= waitTimer && dragons.Count <= 0 && wave < waveDatas.Length) 
         {
-            
+            if (waveCount > 0 )
+            {
+                UIManager.instance.OpenSkillTree();
+
+            }
             SpawnWave();
         }
         if (wave >= waveDatas.Length) 

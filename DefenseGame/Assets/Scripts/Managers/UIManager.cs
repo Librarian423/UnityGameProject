@@ -25,6 +25,11 @@ public class UIManager : MonoBehaviour
 
     public TextMeshProUGUI waveText;
     public Slider hpBar;
+    public GameObject skillTree;
+
+    //Magic btns
+    public GameObject fbBtn;
+    public GameObject lBtn;
 
     private void Start()
     {
@@ -52,4 +57,44 @@ public class UIManager : MonoBehaviour
         waveText.text = "Survived " + wave + " waves";
     }
 
+    public void OpenSkillTree()
+    {
+        GameManager.instance.Pause();
+        skillTree.SetActive(true);
+    }
+
+    public void ResumeGame()
+    {
+        GameManager.instance.Resume();
+    }
+
+    public void SearchMagicButton(List<Magics> magics)
+    {
+        if (magics.Count > 0) 
+        {
+            foreach (var item in magics)
+            {
+                EnableMagicBtn(item);
+            }
+        }
+    }
+    
+    public void EnableMagicBtn(Magics type)
+    {
+        switch (type)
+        {
+            case Magics.FireBlast:
+                if (!fbBtn.activeSelf)
+                {
+                    fbBtn.SetActive(true);
+                }
+                break;
+            case Magics.Laser:
+                if (!lBtn.activeSelf)
+                {
+                    lBtn.SetActive(true);
+                }
+                break;
+        }
+    }
 }
