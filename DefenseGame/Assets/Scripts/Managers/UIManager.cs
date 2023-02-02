@@ -125,4 +125,9 @@ public class UIManager : MonoBehaviour
                 break;
         }
     }
+
+    public void SetInterectable(Button button)
+    {
+        button.interactable = false;
+    }
 }

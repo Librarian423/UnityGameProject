@@ -9,6 +9,7 @@ public class SkillTree : MonoBehaviour
     public Scrollbar scrollbar;
     public GameObject FireblastWizard;
     public GameObject LaserWizard;
+    public GameObject archerMain;
 
     public SkillTreeData data;
 
@@ -29,7 +30,7 @@ public class SkillTree : MonoBehaviour
     }
 
     //FireBlast
-    public void PurchaseMagic1()
+    public void PurchaseMagic1(Button button)
     {
         bool isExist = FindIfPossible(Magics.FireBlast);
         if (isExist)
@@ -43,11 +44,12 @@ public class SkillTree : MonoBehaviour
             FireblastWizard.SetActive(true);
             enabledMagic.Add(Magics.FireBlast);
             UIManager.instance.EnableMagicBtn(Magics.FireBlast);
+            UIManager.instance.SetInterectable(button);
         }
     }
 
     //Laser
-    public void PurchaseMagic2()
+    public void PurchaseMagic2(Button button)
     {
         bool isExist = FindIfPossible(Magics.Laser);
         if (isExist)
@@ -61,7 +63,19 @@ public class SkillTree : MonoBehaviour
             LaserWizard.SetActive(true);
             enabledMagic.Add(Magics.Laser);
             UIManager.instance.EnableMagicBtn(Magics.Laser);
+            UIManager.instance.SetInterectable(button);
         }
+    }
+
+    public void PurchaseArrow1(Button button)
+    {
+        if (PropertyManager.instance.Money >= data.Archer1Cost)
+        {
+            PropertyManager.instance.SetMoney(-data.Archer1Cost);
+            archerMain.GetComponentInChildren<Bow>().SetLevel2();
+            UIManager.instance.SetInterectable(button);
+        }
+        
     }
 
     private bool FindIfPossible(Magics type)

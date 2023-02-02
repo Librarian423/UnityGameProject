@@ -7,5 +7,5 @@ public class SkillTreeData : ScriptableObject
 {
     public int FBWizard1Cost = 1000;
     public int LWizard1Cost = 1000;
-
+    public int Archer1Cost = 1000;
 }
