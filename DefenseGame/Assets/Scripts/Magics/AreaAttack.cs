@@ -41,7 +41,7 @@ public class AreaAttack : MonoBehaviour, IMagics
         if (isAttak && collision.gameObject.tag == "Enemy")
         {
             //Debug.Log("hit");
-            var target = collision.gameObject.GetComponent<Dragon>();
+            var target = collision.gameObject.GetComponent<Enemy>();
             if (target != null)
             {
                 target.OnHit(Damage);

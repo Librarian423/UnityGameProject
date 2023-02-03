@@ -51,7 +51,7 @@ public class MultipleAttack : MonoBehaviour, IMagics
         {
             //Debug.Log("hit");
             timer = AttackTimer;
-            var target = collision.gameObject.GetComponent<Dragon>();
+            var target = collision.gameObject.GetComponent<Enemy>();
             if (target != null)
             {
                 target.OnHit(Damage);

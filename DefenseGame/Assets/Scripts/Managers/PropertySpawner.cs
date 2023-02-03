@@ -69,7 +69,7 @@ public class PropertySpawner : MonoBehaviour
     {
 
         // 적 프리팹으로부터 적 생성
-        Resource resource = Instantiate(resourcePrefabs[(int)type], pos, Quaternion.identity);
+        Resource resource = Instantiate(resourcePrefabs[type], pos, Quaternion.identity);
 
         // 생성된 적을 리스트에 추가
         resources.Add(resource);

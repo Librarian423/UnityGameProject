@@ -10,5 +10,5 @@ public class DragonData : ScriptableObject
     public float damage = 10f;
     public float movePos = 10f;
     public float fireDelay = 2f;
-
+    public int dropGold = 100;
 }

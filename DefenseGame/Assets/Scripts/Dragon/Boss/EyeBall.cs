@@ -3,40 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Dragon : Enemy
+public class EyeBall : Enemy
 {
     //Fireball
     public FireBall fireBallPrefab;
 
-    private float fireTimer;
+    //private float summonDelay;
 
     public event Action onDeath;
 
     // Start is called before the first frame update
     private void Start()
     {
-        fireTimer = attackDelay;
+        
     }
 
     // Update is called once per frame
     private void Update()
-    {
-        fireTimer += Time.deltaTime;
-        if (transform.position.x >= movePos)
-        {
-            transform.Translate(Vector2.left * speed * Time.deltaTime);
-        }
-        else if (transform.position.x < movePos && fireTimer >= attackDelay) 
-        {
-            fireTimer = 0;
-            Fire();
-        }
+    { 
+        transform.Translate(Vector2.left * speed * Time.deltaTime);
     }
 
-    private void Fire()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        FireBall fireBall = Instantiate(fireBallPrefab, transform.position, Quaternion.identity);
-        fireBall.Damage = damage;
+        //Debug.Log("enter");
+        if (collision.gameObject.CompareTag("Castle"))
+        {
+            //Debug.Log("hit");
+            var target = collision.gameObject.GetComponent<Castle>();
+            if (target != null)
+            {
+                target.OnHit(damage);
+            }
+            Die();
+        }
     }
 
     public override void OnHit(float damage)
@@ -61,8 +61,8 @@ public class Dragon : Enemy
     {
         if (onDeath != null)
         {
-            onDeath();      
+            onDeath();
         }
-        Destroy(gameObject);   
+        Destroy(gameObject);
     }
 }

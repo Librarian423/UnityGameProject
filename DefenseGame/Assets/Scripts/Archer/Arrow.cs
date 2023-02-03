@@ -39,10 +39,11 @@ public class Arrow : MonoBehaviour
     {
         if (collision.collider.CompareTag("Enemy"))
         {
-            //Debug.Log("hit");
-            var target = collision.collider.GetComponent<Dragon>();
+            
+            var target = collision.collider.GetComponent<Enemy>();
             if (target != null) 
             {
+                //Debug.Log("hit");
                 target.OnHit(Damage);
             }
             gameObject.SetActive(false);

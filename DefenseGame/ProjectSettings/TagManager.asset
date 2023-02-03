@@ -26,8 +26,8 @@ TagManager:
   - Dragon
   - Clickable
   - Resource
-  - 
-  - 
+  - BossDragon
+  - EyeBall
   - 
   - 
   - 
@@ -58,6 +58,9 @@ TagManager:
     locked: 0
   - name: Dragon
     uniqueID: 2032706139
+    locked: 0
+  - name: Boss
+    uniqueID: 1962417359
     locked: 0
   - name: Ship
     uniqueID: 2130527069

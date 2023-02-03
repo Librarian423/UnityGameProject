@@ -3,41 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Dragon : Enemy
+public class DragonBoss : Enemy
 {
     //Fireball
     public FireBall fireBallPrefab;
 
-    private float fireTimer;
+    //private float summonDelay;
 
     public event Action onDeath;
 
     // Start is called before the first frame update
     private void Start()
     {
-        fireTimer = attackDelay;
+        //summonDelay = attackDelay;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        fireTimer += Time.deltaTime;
+        //summonDelay += Time.deltaTime;
         if (transform.position.x >= movePos)
         {
             transform.Translate(Vector2.left * speed * Time.deltaTime);
         }
-        else if (transform.position.x < movePos && fireTimer >= attackDelay) 
-        {
-            fireTimer = 0;
-            Fire();
-        }
+        //else if (transform.position.x < movePos && summonDelay >= attackDelay)
+        //{
+        //    summonDelay = 0;
+        //    //Fire();
+        //}
     }
 
-    private void Fire()
-    {
-        FireBall fireBall = Instantiate(fireBallPrefab, transform.position, Quaternion.identity);
-        fireBall.Damage = damage;
-    }
+    //private void Fire()
+    //{
+    //    FireBall fireBall = Instantiate(fireBallPrefab, transform.position, Quaternion.identity);
+    //    fireBall.Damage = damage;
+    //}
 
     public override void OnHit(float damage)
     {
@@ -61,8 +61,8 @@ public class Dragon : Enemy
     {
         if (onDeath != null)
         {
-            onDeath();      
+            onDeath();
         }
-        Destroy(gameObject);   
+        Destroy(gameObject);
     }
 }
