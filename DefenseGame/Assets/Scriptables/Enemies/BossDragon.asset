@@ -18,3 +18,5 @@ MonoBehaviour:
   movePos: 10
   fireDelay: 2
   dropGold: 1000
+  hitPrefab: {fileID: 7510570829769233737, guid: 6f41138f1c43f45df8d361604db7a4d9, type: 3}
+  playDuration: 1

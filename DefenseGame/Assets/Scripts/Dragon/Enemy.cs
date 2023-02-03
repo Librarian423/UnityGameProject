@@ -10,16 +10,9 @@ public class Enemy : MonoBehaviour
     protected float movePos = 0f;
     protected float attackDelay = 2f;
 
-    public virtual void OnHit(float damage) { }
+    public virtual void OnHit(float damage, Vector2 position) { }
 
-    public virtual void SetStates(float health, float speed, float damage, float moveDistance, float attackDelay)
-    {
-        this.health = health;
-        this.speed = speed;
-        this.damage = damage;
-        this.movePos = moveDistance;
-        this.attackDelay = attackDelay;
-    }
+    public virtual void SetStates() { }
 
     public virtual void Die() { }
 }

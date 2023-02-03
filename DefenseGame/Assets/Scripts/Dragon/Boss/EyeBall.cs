@@ -7,7 +7,7 @@ public class EyeBall : Enemy
 {
     //Fireball
     public FireBall fireBallPrefab;
-
+    public DragonData dragonData;
     //private float summonDelay;
 
     public event Action onDeath;
@@ -15,7 +15,7 @@ public class EyeBall : Enemy
     // Start is called before the first frame update
     private void Start()
     {
-        
+        SetStates();
     }
 
     // Update is called once per frame
@@ -39,8 +39,9 @@ public class EyeBall : Enemy
         }
     }
 
-    public override void OnHit(float damage)
+    public override void OnHit(float damage, Vector2 position)
     {
+        dragonData.PlayEffect(transform.position);
         health -= damage;
         if (health <= 0)
         {
@@ -48,19 +49,20 @@ public class EyeBall : Enemy
         }
     }
 
-    public override void SetStates(float health, float speed, float damage, float moveDistance, float fireDelay)
+    public override void SetStates()
     {
-        this.health = health;
-        this.speed = speed;
-        this.damage = damage;
-        this.movePos = moveDistance;
-        this.attackDelay = fireDelay;
+        this.health = dragonData.health;
+        this.speed = dragonData.speed;
+        this.damage = dragonData.damage;
+        this.movePos = dragonData.movePos;
+        this.attackDelay = dragonData.fireDelay;
     }
 
     public override void Die()
     {
         if (onDeath != null)
         {
+            dragonData.PlayEffect(transform.position);
             onDeath();
         }
         Destroy(gameObject);

@@ -103,10 +103,12 @@ MonoBehaviour:
   dotCount: 20
   force: 14
   fireDelay: 0.7
+  damage: 50
   maxPoolSize: 500
   stackDefaultCapacity: 100
   arrowPrefab: {fileID: 5735186555157690579, guid: 7d4209356f8e74802804c6845f04f86b, type: 3}
-  damage: 50
+  arrowCount: 2
+  gap: 0.5
 --- !u!95 &172067140451279452
 Animator:
   serializedVersion: 5

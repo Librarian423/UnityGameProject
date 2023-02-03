@@ -54,7 +54,7 @@ public class MultipleAttack : MonoBehaviour, IMagics
             var target = collision.gameObject.GetComponent<Enemy>();
             if (target != null)
             {
-                target.OnHit(Damage);
+                target.OnHit(Damage, target.transform.position);
             }
 
         }

@@ -7,7 +7,7 @@ public class Dragon : Enemy
 {
     //Fireball
     public FireBall fireBallPrefab;
-
+    public DragonData dragonData;
     private float fireTimer;
 
     public event Action onDeath;
@@ -15,6 +15,7 @@ public class Dragon : Enemy
     // Start is called before the first frame update
     private void Start()
     {
+        SetStates();
         fireTimer = attackDelay;
     }
 
@@ -39,8 +40,9 @@ public class Dragon : Enemy
         fireBall.Damage = damage;
     }
 
-    public override void OnHit(float damage)
+    public override void OnHit(float damage, Vector2 position)
     {
+        dragonData.PlayEffect(position);
         health -= damage;
         if (health <= 0)
         {
@@ -48,19 +50,20 @@ public class Dragon : Enemy
         }
     }
 
-    public override void SetStates(float health, float speed, float damage, float moveDistance, float fireDelay)
+    public override void SetStates()
     {
-        this.health = health;
-        this.speed = speed;
-        this.damage = damage;
-        this.movePos = moveDistance;
-        this.attackDelay = fireDelay;
+        this.health = dragonData.health;
+        this.speed = dragonData.speed;
+        this.damage = dragonData.damage;
+        this.movePos = dragonData.movePos;
+        this.attackDelay = dragonData.fireDelay;
     }
 
     public override void Die()
     {
         if (onDeath != null)
         {
+            PropertyManager.instance.SetMoney(dragonData.dropGold);
             onDeath();      
         }
         Destroy(gameObject);   

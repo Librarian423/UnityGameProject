@@ -145,6 +145,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c93c062c847f0436eb3bd3c97f356302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
   fireBallPrefab: {fileID: 5415702330194425053, guid: ae8250b829c8144c89ddba447f21c9de, type: 3}
-  resourcePrefab: {fileID: 8493281985008810761, guid: aa8e6bda0005147339286b1df6e6c136, type: 3}
+  dragonData: {fileID: 11400000, guid: 6ab793551de69480982337719c3567da, type: 2}

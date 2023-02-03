@@ -44,7 +44,7 @@ public class Arrow : MonoBehaviour
             if (target != null) 
             {
                 //Debug.Log("hit");
-                target.OnHit(Damage);
+                target.OnHit(Damage, transform.position);
             }
             gameObject.SetActive(false);
         }

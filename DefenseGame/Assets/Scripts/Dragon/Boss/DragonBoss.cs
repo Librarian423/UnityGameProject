@@ -7,14 +7,14 @@ public class DragonBoss : Enemy
 {
     //Fireball
     public FireBall fireBallPrefab;
-
-    //private float summonDelay;
+    public DragonData dragonData;
 
     public event Action onDeath;
 
     // Start is called before the first frame update
     private void Start()
     {
+        SetStates();
         //summonDelay = attackDelay;
     }
 
@@ -26,21 +26,12 @@ public class DragonBoss : Enemy
         {
             transform.Translate(Vector2.left * speed * Time.deltaTime);
         }
-        //else if (transform.position.x < movePos && summonDelay >= attackDelay)
-        //{
-        //    summonDelay = 0;
-        //    //Fire();
-        //}
+        
     }
 
-    //private void Fire()
-    //{
-    //    FireBall fireBall = Instantiate(fireBallPrefab, transform.position, Quaternion.identity);
-    //    fireBall.Damage = damage;
-    //}
-
-    public override void OnHit(float damage)
+    public override void OnHit(float damage, Vector2 position)
     {
+        dragonData.PlayEffect(position);
         health -= damage;
         if (health <= 0)
         {
@@ -48,19 +39,20 @@ public class DragonBoss : Enemy
         }
     }
 
-    public override void SetStates(float health, float speed, float damage, float moveDistance, float fireDelay)
+    public override void SetStates()
     {
-        this.health = health;
-        this.speed = speed;
-        this.damage = damage;
-        this.movePos = moveDistance;
-        this.attackDelay = fireDelay;
+        this.health = dragonData.health;
+        this.speed = dragonData.speed;
+        this.damage = dragonData.damage;
+        this.movePos = dragonData.movePos;
+        this.attackDelay = dragonData.fireDelay;
     }
 
     public override void Die()
     {
         if (onDeath != null)
         {
+            PropertyManager.instance.SetMoney(dragonData.dropGold);
             onDeath();
         }
         Destroy(gameObject);
