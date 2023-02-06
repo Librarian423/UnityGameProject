@@ -8,8 +8,10 @@ public class Dragon : Enemy
     //Fireball
     public FireBall fireBallPrefab;
     public DragonData dragonData;
+    public AudioClip deathClip;
+    public AudioClip attackClip;
     private float fireTimer;
-
+    
     public event Action onDeath;
 
     // Start is called before the first frame update
@@ -36,6 +38,7 @@ public class Dragon : Enemy
 
     private void Fire()
     {
+        SoundManager.instance.PlayEffect(attackClip);
         FireBall fireBall = Instantiate(fireBallPrefab, transform.position, Quaternion.identity);
         fireBall.Damage = damage;
     }
@@ -63,6 +66,7 @@ public class Dragon : Enemy
     {
         if (onDeath != null)
         {
+            SoundManager.instance.PlayEffect(deathClip);
             PropertyManager.instance.SetMoney(dragonData.dropGold);
             onDeath();      
         }

@@ -44,7 +44,7 @@ public class AreaAttack : MonoBehaviour, IMagics
             var target = collision.gameObject.GetComponent<Enemy>();
             if (target != null)
             {
-                target.OnHit(Damage, target.transform.position);
+                target.OnHit(Damage, transform.position);
             }
             
         }

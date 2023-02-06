@@ -25,6 +25,8 @@ public class UIManager : MonoBehaviour
 
     public TextMeshProUGUI waveText;
     public Slider hpBar;
+    //private bool isHit = false;
+    //public bool IsHit { get { return isHit; } set { isHit = value; } }
     
     //Popups
     [Header("PopUps")]
@@ -35,6 +37,9 @@ public class UIManager : MonoBehaviour
     [Header("Magic Buttons")]
     public GameObject fbBtn;
     public GameObject lBtn;
+
+    [Header("UI SE")]
+    public AudioClip skillTreeSE;
 
     private void Start()
     {
@@ -64,6 +69,7 @@ public class UIManager : MonoBehaviour
 
     public void OpenSkillTree()
     {
+        SoundManager.instance.PlayEffect(skillTreeSE);
         GameManager.instance.Pause();
         skillTree.SetActive(true);
     }
@@ -129,5 +135,15 @@ public class UIManager : MonoBehaviour
     public void SetInterectable(Button button)
     {
         button.interactable = false;
+    }
+
+    public void SetInterectableTrue(Button button)
+    {
+        button.interactable = true;
+    }
+
+    public void ClickBtnSE(AudioClip clip)
+    {
+        SoundManager.instance.PlayEffect(clip);
     }
 }

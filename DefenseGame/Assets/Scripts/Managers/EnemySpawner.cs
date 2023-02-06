@@ -8,7 +8,6 @@ public class EnemySpawner : MonoBehaviour
     public DragonBoss[] dragonBossePrefabs;
     public EyeBall eyeBallPrefab;
     public Transform[] spawnPoints;
-    //public DragonData[] dragonDatas;
     public WaveData[] waveDatas;
 
     private List<Enemy> enemies = new List<Enemy>();
@@ -58,8 +57,8 @@ public class EnemySpawner : MonoBehaviour
             if (waveCount > 0 )
             {
                 UIManager.instance.OpenSkillTree();
+                //timer = 0;
             }
-
             //wave pattern
             if (waveDatas[wave].bossWave)
             {
@@ -71,7 +70,6 @@ public class EnemySpawner : MonoBehaviour
                 waveCount++;
                 SpawnDragons();
             }
-           
         }
         if (wave >= waveDatas.Length) 
         {

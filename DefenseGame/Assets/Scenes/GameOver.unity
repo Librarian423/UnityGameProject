@@ -670,6 +670,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveText: {fileID: 244265374}
   hpBar: {fileID: 0}
+  skillTree: {fileID: 0}
+  pausePopUp: {fileID: 0}
+  fbBtn: {fileID: 0}
+  lBtn: {fileID: 0}
 --- !u!1001 &872830655
 PrefabInstance:
   m_ObjectHideFlags: 0

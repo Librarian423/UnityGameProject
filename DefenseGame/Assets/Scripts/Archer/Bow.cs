@@ -9,6 +9,7 @@ using static UnityEngine.GraphicsBuffer;
 public class Bow : MonoBehaviour
 {
     private Animator animator;
+    public AudioClip fireSE;
 
     //Projectile Track
     private Vector2 mousePoint;
@@ -150,6 +151,7 @@ public class Bow : MonoBehaviour
 
     private void Fire()
     {
+        SoundManager.instance.PlayEffect(fireSE);
         var arrow = ArrowPool.Get();
         arrow.transform.position = transform.position;
         arrow.Damage = damage;

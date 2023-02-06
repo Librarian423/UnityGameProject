@@ -169,3 +169,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireBallPrefab: {fileID: 0}
   dragonData: {fileID: 11400000, guid: e3ef6f34a93f246a8bac7e04a50b3b5f, type: 2}
+  deathClip: {fileID: 8300000, guid: fe5cc16d8cd387a4ba7b06e3d91acdea, type: 3}

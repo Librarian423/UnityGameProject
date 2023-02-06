@@ -8,6 +8,7 @@ public class DragonBoss : Enemy
     //Fireball
     public FireBall fireBallPrefab;
     public DragonData dragonData;
+    public AudioClip deathClip;
 
     public event Action onDeath;
 
@@ -52,6 +53,7 @@ public class DragonBoss : Enemy
     {
         if (onDeath != null)
         {
+            SoundManager.instance.PlayEffect(deathClip);
             PropertyManager.instance.SetMoney(dragonData.dropGold);
             onDeath();
         }

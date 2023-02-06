@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class SkillTree : MonoBehaviour
 {
-    public Scrollbar scrollbar;
+    //public Scrollbar scrollbar;
     public GameObject FireblastWizard;
     public GameObject LaserWizard;
     public GameObject archerMain;
@@ -20,7 +20,7 @@ public class SkillTree : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        scrollbar.value = 1;
+        //scrollbar.value = 1;
     }
 
     // Update is called once per frame

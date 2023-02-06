@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7941f86292cf435393cd1cb64135647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireSE: {fileID: 8300000, guid: 323e15cfe809e114ab92c9f4b25e8bc2, type: 3}
   dotPrefab: {fileID: 295898415358446679, guid: 9972bef78312b4215a2b9448f4320222, type: 3}
   dots: []
   dotCount: 20

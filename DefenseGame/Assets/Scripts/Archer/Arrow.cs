@@ -5,6 +5,7 @@ using UnityEngine.Pool;
 
 public class Arrow : MonoBehaviour
 {
+    public AudioClip hitSE;
 
     private Rigidbody2D rb;
     public IObjectPool<Arrow> arrowPool { get; set; }
@@ -44,6 +45,7 @@ public class Arrow : MonoBehaviour
             if (target != null) 
             {
                 //Debug.Log("hit");
+                SoundManager.instance.PlayEffect(hitSE);
                 target.OnHit(Damage, transform.position);
             }
             gameObject.SetActive(false);

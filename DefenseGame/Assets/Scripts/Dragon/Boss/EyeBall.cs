@@ -8,7 +8,7 @@ public class EyeBall : Enemy
     //Fireball
     public FireBall fireBallPrefab;
     public DragonData dragonData;
-    //private float summonDelay;
+    public AudioClip deathClip;
 
     public event Action onDeath;
 
@@ -62,6 +62,7 @@ public class EyeBall : Enemy
     {
         if (onDeath != null)
         {
+            SoundManager.instance.PlayEffect(deathClip);
             dragonData.PlayEffect(transform.position);
             onDeath();
         }

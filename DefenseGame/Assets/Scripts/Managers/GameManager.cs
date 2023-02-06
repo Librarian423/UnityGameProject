@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        
+        SoundManager.instance.ChangeBgmOnSceneLoad(2);
         SceneManager.LoadScene(2);
     }
 }
