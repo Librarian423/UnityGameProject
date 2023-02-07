@@ -2672,6 +2672,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1867768894}
     m_Modifications:
+    - target: {fileID: 1030073165813799220, guid: c826d9ea3440f4a8e8986f4cd8cabe2a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 92b5eaef4fca491489730ff6a74d28cf, type: 3}
     - target: {fileID: 3597355232953693241, guid: c826d9ea3440f4a8e8986f4cd8cabe2a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -5661,6 +5665,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 842995289}
+    - target: {fileID: 1639856861, guid: 748017177bc154e9cb31f39544fff6a8, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 92b5eaef4fca491489730ff6a74d28cf, type: 3}
     - target: {fileID: 1726614159, guid: 748017177bc154e9cb31f39544fff6a8, type: 3}
       propertyPath: archerMain
       value: 
