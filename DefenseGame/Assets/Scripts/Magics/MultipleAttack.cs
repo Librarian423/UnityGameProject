@@ -6,7 +6,7 @@ using static UnityEngine.GraphicsBuffer;
 public class MultipleAttack : MonoBehaviour, IMagics
 {
     private ParticleSystem particle;
-    //private bool isAttak = false;
+    private bool isAttak = false;
     public Magics type;
     public float Damage { get; set; }
     public float Speed { get; set; }
@@ -35,7 +35,7 @@ public class MultipleAttack : MonoBehaviour, IMagics
         //gameObject.transform.position = pos;
         gameObject.SetActive(true);
         particle.Play();
-        //isAttak = true;
+        isAttak = true;
     }
 
     // Start is called before the first frame update
@@ -50,7 +50,7 @@ public class MultipleAttack : MonoBehaviour, IMagics
         
         durationTimer -= Time.deltaTime;
 
-        if (type == Magics.FireBlast) 
+        if (isAttak && type == Magics.FireBlast) 
         {
             //timer -= Time.deltaTime;
             transform.Translate(Vector2.right * Speed * Time.deltaTime);
@@ -58,7 +58,7 @@ public class MultipleAttack : MonoBehaviour, IMagics
         
         if (type == Magics.Electric && durationTimer <= 0) 
         {
-
+            isAttak = false;
             gameObject.SetActive(false);
         }
     }
@@ -96,7 +96,7 @@ public class MultipleAttack : MonoBehaviour, IMagics
 
     private void OnBecameInvisible()
     {
-        //isAttak = false;
+        isAttak = false;
         gameObject.SetActive(false);
         
     }
