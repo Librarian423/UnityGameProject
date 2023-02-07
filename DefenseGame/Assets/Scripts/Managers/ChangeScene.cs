@@ -15,11 +15,13 @@ public class ChangeScene : MonoBehaviour
 
     public void OnChangeScene(Scenes scene)
     {
+        SoundManager.instance.ChangeBgmOnSceneLoad((int)scene);
         SceneManager.LoadScene((int)scene);
     }
 
     public void Change(int sceneNum)
     {
+        SoundManager.instance.ChangeBgmOnSceneLoad(sceneNum);
         SceneManager.LoadScene(sceneNum);
     }
 

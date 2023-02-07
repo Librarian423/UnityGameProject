@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c93c062c847f0436eb3bd3c97f356302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
   fireBallPrefab: {fileID: 5415702330194425053, guid: ae8250b829c8144c89ddba447f21c9de, type: 3}
-  resourcePrefab: {fileID: 8493281985008810761, guid: bd6fe4ae8240a40e79eeb8ee30ac9b55, type: 3}
+  dragonData: {fileID: 11400000, guid: 06eefcaba375c45c4984da890dcc8411, type: 2}
+  deathClip: {fileID: 8300000, guid: 328ea269378019942b9ef8ce9964dac2, type: 3}
+  attackClip: {fileID: 8300000, guid: 61d020c4b43e04748b3347465eaa1a49, type: 3}

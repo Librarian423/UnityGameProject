@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: FireBlast
   m_EditorClassIdentifier: 
   type: 1
-  attackSpeed: 1
-  damage: 10
+  attackSpeed: 2
+  damage: 20
   attackDistance: 10
   attackPrefab: {fileID: 834500284234291228, guid: 55e8fffae17b54c3e917e37bb7155712, type: 3}
   attackHitTime: 0.2

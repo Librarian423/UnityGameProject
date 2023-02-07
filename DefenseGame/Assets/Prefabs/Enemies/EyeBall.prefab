@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2813988992909133604}
   - component: {fileID: 2813988992909133603}
   - component: {fileID: 2813988992909133606}
-  - component: {fileID: 2813988992909133605}
   - component: {fileID: 2813988992909133607}
   - component: {fileID: -4604979515419483880}
+  - component: {fileID: 2813988992909133605}
   m_Layer: 19
   m_Name: EyeBall
   m_TagString: Enemy
@@ -108,19 +108,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &2813988992909133605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2813988992909133602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aceec9e10c9524ec29d5f0f85d0a4e0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireBallPrefab: {fileID: 0}
 --- !u!61 &2813988992909133607
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -168,3 +155,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2813988992909133605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2813988992909133602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aceec9e10c9524ec29d5f0f85d0a4e0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireBallPrefab: {fileID: 0}
+  dragonData: {fileID: 11400000, guid: e3ef6f34a93f246a8bac7e04a50b3b5f, type: 2}
+  deathClip: {fileID: 8300000, guid: fe5cc16d8cd387a4ba7b06e3d91acdea, type: 3}

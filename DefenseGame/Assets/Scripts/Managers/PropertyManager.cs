@@ -22,7 +22,7 @@ public class PropertyManager : MonoBehaviour
         }
     }
 
-    private int money = 0;
+    private int money = 6000;
     private int meat = 0;
 
     public int Money { get { return money; }  }

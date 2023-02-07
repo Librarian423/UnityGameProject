@@ -18,3 +18,5 @@ MonoBehaviour:
   movePos: 0
   fireDelay: 1
   dropGold: 0
+  hitPrefab: {fileID: 5667399557118736619, guid: 65afb7709c0af453a9224476f45b3f4f, type: 3}
+  playDuration: 1

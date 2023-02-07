@@ -8,7 +8,6 @@ public class EnemySpawner : MonoBehaviour
     public DragonBoss[] dragonBossePrefabs;
     public EyeBall eyeBallPrefab;
     public Transform[] spawnPoints;
-    public DragonData[] dragonDatas;
     public WaveData[] waveDatas;
 
     private List<Enemy> enemies = new List<Enemy>();
@@ -58,8 +57,8 @@ public class EnemySpawner : MonoBehaviour
             if (waveCount > 0 )
             {
                 UIManager.instance.OpenSkillTree();
+                //timer = 0;
             }
-
             //wave pattern
             if (waveDatas[wave].bossWave)
             {
@@ -71,7 +70,6 @@ public class EnemySpawner : MonoBehaviour
                 waveCount++;
                 SpawnDragons();
             }
-           
         }
         if (wave >= waveDatas.Length) 
         {
@@ -146,37 +144,37 @@ public class EnemySpawner : MonoBehaviour
 
     private void SetStatus(EnemyType type)
     {
-        float health = dragonDatas[(int)type].health;
-        float speed = dragonDatas[(int)type].speed;
-        float damage = dragonDatas[(int)type].damage;
-        float moveDistance = dragonDatas[(int)type].movePos;
-        float fireDelay = dragonDatas[(int)type].fireDelay;
-        int gold = dragonDatas[(int)type].dropGold;
+        //float health = dragonDatas[(int)type].health;
+        //float speed = dragonDatas[(int)type].speed;
+        //float damage = dragonDatas[(int)type].damage;
+        //float moveDistance = dragonDatas[(int)type].movePos;
+        //float fireDelay = dragonDatas[(int)type].fireDelay;
+        //int gold = dragonDatas[(int)type].dropGold;
 
         switch (type)
         {
             case EnemyType.Gold:
             case EnemyType.Red:
-                CreateDragon(type, health, speed, damage, moveDistance, fireDelay, gold);
+                CreateDragon(type);//, health, speed, damage, moveDistance, fireDelay, gold);
                 break;
             case EnemyType.BossDragon:
-                CreateBossDragon(health, speed, damage, moveDistance, fireDelay, gold);
+                CreateBossDragon();
                 break;
             case EnemyType.Eye:
-                CreateEyeBall(health, speed, damage, moveDistance, fireDelay, gold);
+                CreateEyeBall();
                 break;
         }
         
     }
 
-    private void CreateDragon(EnemyType type,float health, float speed, float damage, float moveDistance, float fireDelay, int gold)
+    private void CreateDragon(EnemyType type)//,float health, float speed, float damage, float moveDistance, float fireDelay, int gold)
     {
         Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length - 1)];
         
         Dragon dragon = Instantiate(dragonPrefabs[(int)type], spawnPoint.position, Quaternion.identity);
 
         // 생성한 적의 능력치와 추적 대상 설정
-        dragon.SetStates(health, speed, damage, moveDistance, fireDelay);
+        //dragon.SetStates(health, speed, damage, moveDistance, fireDelay);
 
         // 생성된 적을 리스트에 추가
         enemies.Add(dragon);
@@ -186,7 +184,7 @@ public class EnemySpawner : MonoBehaviour
         dragon.onDeath += () => PropertySpawner.instance.CreateCorp((int)type, dragon.transform.position);
         dragon.onDeath += () => enemies.Remove(dragon);
         dragon.onDeath += () => timer = 0f;
-        dragon.onDeath += () => PropertyManager.instance.SetMoney(gold);
+        //dragon.onDeath += () => PropertyManager.instance.SetMoney(gold);
         dragon.onDeath += () => GotoNextWave();
 
         // 사망한 적을 10 초 뒤에 파괴
@@ -196,7 +194,7 @@ public class EnemySpawner : MonoBehaviour
 
     }
 
-    private void CreateBossDragon(float health, float speed, float damage, float moveDistance, float fireDelay, int gold)
+    private void CreateBossDragon()
     {
         int index = spawnPoints.Length - 1;
         Transform spawnPoint = spawnPoints[index];
@@ -204,7 +202,7 @@ public class EnemySpawner : MonoBehaviour
         DragonBoss dragonBoss = Instantiate(dragonBossePrefabs[0], spawnPoint.position, Quaternion.identity);
 
         // 생성한 적의 능력치와 추적 대상 설정
-        dragonBoss.SetStates(health, speed, damage, moveDistance, fireDelay);
+        //dragonBoss.SetStates(health, speed, damage, moveDistance, fireDelay);
 
         // 생성된 적을 리스트에 추가
         enemies.Add(dragonBoss);
@@ -215,19 +213,19 @@ public class EnemySpawner : MonoBehaviour
         dragonBoss.onDeath += () => PropertySpawner.instance.CreateCorp((int)EnemyType.BossDragon, dragonBoss.transform.position);
         dragonBoss.onDeath += () => enemies.Remove(dragonBoss);
         dragonBoss.onDeath += () => timer = 0f;
-        dragonBoss.onDeath += () => PropertyManager.instance.SetMoney(gold);
+        //dragonBoss.onDeath += () => PropertyManager.instance.SetMoney(gold);
         dragonBoss.onDeath += () => StopSpawnEyeBalls();
         dragonBoss.onDeath += () => GotoNextWave();
     }
 
-    private void CreateEyeBall(float health, float speed, float damage, float moveDistance, float fireDelay, int gold)
+    private void CreateEyeBall()
     {
         Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length - 1)];
 
         EyeBall eyeBall = Instantiate(eyeBallPrefab, spawnPoint.position, Quaternion.identity);
 
         // 생성한 적의 능력치와 추적 대상 설정
-        eyeBall.SetStates(health, speed, damage, moveDistance, fireDelay);
+        //eyeBall.SetStates(health, speed, damage, moveDistance, fireDelay);
 
         // 생성된 적을 리스트에 추가
         enemies.Add(eyeBall);
@@ -254,6 +252,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (enemies.Count <= 0) 
         {
+            timer = 0;
             wave++;
         }
     }

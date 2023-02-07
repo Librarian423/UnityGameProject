@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.ParticleSystem;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class Wizard : MonoBehaviour
 {
@@ -12,9 +14,15 @@ public class Wizard : MonoBehaviour
         Multiple,
         Area,
     }
-
+    public AudioClip castClip;
     public WizardData stats;
     public GameObject rangeArea;
+
+    //cool time
+    public UnityEngine.UI.Slider slider;
+    //private Coroutine coroutine;
+    public float coolTime = 1f;
+    private float timer = 0f; 
 
     private Animator animator;
     private AttackType type;
@@ -23,14 +31,16 @@ public class Wizard : MonoBehaviour
     private float attackDistance = 10f;
     private GameObject attackPrefab;
     private float attackTimer = 0f;
-
     private GameObject magic;
-
     private bool isClick = false;
+    private UnityEngine.UI.Button button;
 
     // Start is called before the first frame update
     void Start()
     {
+        timer = coolTime;
+        slider.value = 0;
+        slider.fillRect.gameObject.SetActive(false);
         animator = GetComponent<Animator>();
 
         //Init stats
@@ -63,7 +73,21 @@ public class Wizard : MonoBehaviour
         {
             return;
         }
-        
+
+        timer += Time.deltaTime;
+        if (button != null)
+        {
+            if (slider.value > 0)
+            {
+                slider.value -= Time.deltaTime;
+            }
+            else
+            {
+                slider.fillRect.gameObject.SetActive(false);
+                UIManager.instance.SetInterectableTrue(button);
+            }
+        }
+
         if (isClick && Input.GetMouseButtonDown(0))
         {
             Attack();
@@ -82,22 +106,28 @@ public class Wizard : MonoBehaviour
         }
     }
 
-    public void OnClickButton()
+    public void OnClickButton(UnityEngine.UI.Button button)
     {
 
         if (GameManager.instance.IsPause) 
         {
             return;
         }
+        this.button = button;
         rangeArea.SetActive(true);
         isClick = true;
+        slider.maxValue = coolTime;
+        slider.value = 0;
+        //slider.gameObject.SetActive(false);
         GameManager.instance.IsArrowAble = false; 
     }
 
     private void Attack()
     {
+        slider.fillRect.gameObject.SetActive(true);
+        UIManager.instance.SetInterectable(button);
         animator.SetBool("Attack", true);
-
+        SoundManager.instance.PlayEffect(castClip);
         Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         switch (type)
         {
@@ -123,16 +153,19 @@ public class Wizard : MonoBehaviour
                 rangeArea.transform.position = pos;
                 break;
             case AttackType.Area:
-                rangeArea.transform.position = new Vector3(pos.x, 0, 0);
+                rangeArea.transform.position = pos;
                 break;
         }
     }
 
     private void InitAfterAttack()
     {
+        timer = coolTime;
         isClick = false;
         rangeArea.SetActive(false);
         GameManager.instance.IsArrowAble = true;
+        slider.value = coolTime;
+        slider.fillRect.gameObject.SetActive(true);
     }
 
     private void SetStats()
