@@ -7,11 +7,21 @@ public class AreaAttack : MonoBehaviour, IMagics
 {
     private ParticleSystem particle;
     private bool isAttak = false;
+    public Magics type;
     public float Damage { get; set; }
 
     public void Attack(Vector2 pos)
     {
-        gameObject.transform.position = new Vector3(pos.x, 0, 0);
+        switch (type)
+        {
+            case Magics.Explosion:
+                gameObject.transform.position = new Vector3(pos.x, pos.y, 0);
+                break;
+            default:
+                gameObject.transform.position = new Vector3(pos.x, 0, 0);
+                break;
+        }
+        
         gameObject.SetActive(true);
         particle.Play();
         isAttak = true;

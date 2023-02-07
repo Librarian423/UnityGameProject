@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
@@ -25,15 +26,21 @@ public class SoundManager : MonoBehaviour
         Effect,
 
     }
+    [Header("OptionSliders")]
+    public GameObject soundPopup;
+    public Slider totalVol;
+    public Slider bgmVol;
+    public Slider seVol;
 
+    [Header("Clips")]
     public AudioClip[] BGM;
     public AudioSource bgmSound;
     public AudioSource effectSound;
 
 
-    [Range(0, 1)] public float totalVolume = 1f;
-    [Range(0, 1)] public float bgmVolume = 1f;
-    [Range(0, 1)] public float effectVolume = 1f;
+    [Range(0, 1)] public static float totalVolume = 1f;
+    [Range(0, 1)] public static float bgmVolume = 0.5f;
+    [Range(0, 1)] public static float effectVolume = 0.5f;
 
     private void Awake()
     {
@@ -43,13 +50,27 @@ public class SoundManager : MonoBehaviour
             // 자신을 파괴
             Destroy(gameObject);
         }
-
-        DontDestroyOnLoad(gameObject);
+        if (soundPopup != null)
+        {
+            totalVol.value = totalVolume;
+            bgmVol.value = bgmVolume;
+            seVol.value = effectVolume;
+        }
+        
+        
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        if (soundPopup != null)
+        {
+            totalVol.value = totalVolume;
+            bgmVol.value = bgmVolume;
+            seVol.value = effectVolume;
+            bgmSound.volume = bgmVolume * totalVolume;
+            effectSound.volume = effectVolume * totalVolume;
+        }
         ChangeBgmOnSceneLoad(SceneManager.GetActiveScene().buildIndex);
         
     }
@@ -74,6 +95,16 @@ public class SoundManager : MonoBehaviour
         effectSound.loop = false;
         effectSound.volume = effectVolume * totalVolume;
         effectSound.PlayOneShot(clip);
+    }
+
+    public void SetVolumes()
+    {
+        totalVolume = totalVol.value;
+        bgmVolume = bgmVol.value;
+        effectVolume = seVol.value;
+
+        bgmSound.volume = bgmVolume * totalVolume;
+        effectSound.volume = effectVolume * totalVolume;
     }
 
     public void StopAll()

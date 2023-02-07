@@ -98,18 +98,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7941f86292cf435393cd1cb64135647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireSE: {fileID: 8300000, guid: 323e15cfe809e114ab92c9f4b25e8bc2, type: 3}
+  fireSE: {fileID: 8300000, guid: af5ece47ac7f6d741b0b1402c52eac1f, type: 3}
   dotPrefab: {fileID: 295898415358446679, guid: 9972bef78312b4215a2b9448f4320222, type: 3}
   dots: []
   dotCount: 20
   force: 14
-  fireDelay: 0.7
+  fireDelay: 0.4
   damage: 50
   maxPoolSize: 500
   stackDefaultCapacity: 100
   arrowPrefab: {fileID: 5735186555157690579, guid: 7d4209356f8e74802804c6845f04f86b, type: 3}
   arrowCount: 2
   gap: 0.5
+  level3Force: 24
 --- !u!95 &172067140451279452
 Animator:
   serializedVersion: 5

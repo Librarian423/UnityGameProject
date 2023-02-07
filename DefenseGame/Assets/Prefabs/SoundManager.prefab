@@ -305,7 +305,7 @@ MonoBehaviour:
   BGM:
   - {fileID: 8300000, guid: d56a826f089c5a147b4ab343c940df9d, type: 3}
   - {fileID: 8300000, guid: 2c7fadf8a16a6cd498185ac764cb61f9, type: 3}
-  - {fileID: 8300000, guid: 2c7fadf8a16a6cd498185ac764cb61f9, type: 3}
+  - {fileID: 8300000, guid: ea51ac8beb7adad4c8989b20b1e42f7d, type: 3}
   bgmSound: {fileID: 824525245}
   effectSound: {fileID: 982383995}
   totalVolume: 1

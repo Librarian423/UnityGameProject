@@ -153,7 +153,7 @@ public class Wizard : MonoBehaviour
                 rangeArea.transform.position = pos;
                 break;
             case AttackType.Area:
-                rangeArea.transform.position = new Vector3(pos.x, 0, 0);
+                rangeArea.transform.position = pos;
                 break;
         }
     }

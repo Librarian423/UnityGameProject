@@ -252,6 +252,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (enemies.Count <= 0) 
         {
+            timer = 0;
             wave++;
         }
     }

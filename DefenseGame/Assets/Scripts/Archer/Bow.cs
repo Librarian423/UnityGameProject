@@ -35,6 +35,9 @@ public class Bow : MonoBehaviour
     public int arrowCount = 2;
     [Range(0, 1)] public float gap;
 
+    [Header("Upgrades")]
+    public float level3Force = 20f;
+
     private enum Level
     {
         One,
@@ -123,6 +126,7 @@ public class Bow : MonoBehaviour
                     Fire();
                     break;
                 case Level.Two:
+                case Level.Three:
                     Fire2();
                     break;
             }
@@ -169,6 +173,10 @@ public class Bow : MonoBehaviour
         for (int i = 0; i < arrowCount; i++)
         {
             var arrow = ArrowPool.Get();
+            if (level == Level.Three)
+            {
+                arrow.type = Arrow.ArrowType.Pierce;
+            }
             arrow.Damage = damage;
             arrow.transform.position = new Vector3(transform.position.x + (i * gap), transform.position.y);
             arrow.GetComponent<Rigidbody2D>().velocity = transform.up * force;
@@ -197,5 +205,11 @@ public class Bow : MonoBehaviour
             return;
         }
         level = Level.Two;
+    }
+
+    public void SetLevel3()
+    {
+        force = level3Force;
+        level = Level.Three;
     }
 }

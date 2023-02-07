@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2675369381352787530}
   - component: {fileID: 5735186555157690579}
   m_Layer: 12
-  m_Name: Arrow
+  m_Name: PiercingArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -146,5 +146,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a7baf5622da142d798fdc142f980724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
   hitSE: {fileID: 8300000, guid: 7151a31cf33dd0641884cd947603f0fb, type: 3}

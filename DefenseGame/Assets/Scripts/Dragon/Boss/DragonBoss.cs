@@ -33,7 +33,7 @@ public class DragonBoss : Enemy
     public override void OnHit(float damage, Vector2 position)
     {
         dragonData.PlayEffect(position);
-        health -= damage;
+        health -= damage;       
         if (health <= 0)
         {
             Die();

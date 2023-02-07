@@ -5,6 +5,12 @@ using UnityEngine.Pool;
 
 public class Arrow : MonoBehaviour
 {
+    public enum ArrowType
+    {
+        Normal,
+        Pierce,
+    }
+    public ArrowType type;
     public AudioClip hitSE;
 
     private Rigidbody2D rb;
@@ -36,6 +42,30 @@ public class Arrow : MonoBehaviour
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+
+            var target = collision.gameObject.GetComponent<Enemy>();
+            if (target != null)
+            {
+                //Debug.Log("hit");
+                SoundManager.instance.PlayEffect(hitSE);
+                target.OnHit(Damage, transform.position);
+            }
+            switch (type)
+            {
+                case ArrowType.Normal:
+                    gameObject.SetActive(false);
+                    break;
+                case ArrowType.Pierce:
+                    break;
+            }
+            //gameObject.SetActive(false);
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Enemy"))
@@ -48,7 +78,15 @@ public class Arrow : MonoBehaviour
                 SoundManager.instance.PlayEffect(hitSE);
                 target.OnHit(Damage, transform.position);
             }
-            gameObject.SetActive(false);
+            switch (type)
+            {
+                case ArrowType.Normal:
+                    gameObject.SetActive(false);
+                    break;
+                case ArrowType.Pierce:
+                    break;
+            }
+            //gameObject.SetActive(false);
         }
         
     }

@@ -36,7 +36,9 @@ public class UIManager : MonoBehaviour
     //Magic btns
     [Header("Magic Buttons")]
     public GameObject fbBtn;
+    public GameObject exBtn;
     public GameObject lBtn;
+    public GameObject elecBtn;
 
     [Header("UI SE")]
     public AudioClip skillTreeSE;
@@ -47,7 +49,7 @@ public class UIManager : MonoBehaviour
         {
             hpBar.value = 100f;
         }
-       
+        
     }
 
     // 적 웨이브 텍스트 갱신
@@ -127,6 +129,18 @@ public class UIManager : MonoBehaviour
                 if (!lBtn.activeSelf)
                 {
                     lBtn.SetActive(true);
+                }
+                break;
+            case Magics.Explosion:
+                if (!exBtn.activeSelf)
+                {
+                    exBtn.SetActive(true);
+                }
+                break;
+            case Magics.Electric:
+                if (!elecBtn.activeSelf)
+                {
+                    elecBtn.SetActive(true);
                 }
                 break;
         }
