@@ -26,6 +26,12 @@ public class Bow : MonoBehaviour
     public float fireDelay = 0.2f;
     private float timer = 0.2f;
     public float damage = 10f;
+    public float intesity = 0.1f;
+    public float minTargetPos = -4;
+    public float maxTargetPos = 40;
+    private Vector2 targetPoint = Vector2.zero;
+    private bool isDown = false;
+    private bool isUp = false;
 
     //Arrow Pool
     [Header("Arrow Pool")]
@@ -111,12 +117,18 @@ public class Bow : MonoBehaviour
             return;
         }
 
+        if (isUp)
+        {
+            TargetUp();
+        }
+        if (isDown)
+        {
+            TargetDown();
+        }
+        
         timer += Time.deltaTime;
 
-        if (//GameManager.instance.IsArrowAble &&
-            Input.GetMouseButtonDown(0) &&
-            timer >= fireDelay &&
-            !EventSystem.current.IsPointerOverGameObject()) 
+        if (timer >= fireDelay)
         {
             timer = 0f;
             animator.SetBool("IsFiring", true);
@@ -130,20 +142,18 @@ public class Bow : MonoBehaviour
                     Fire2();
                     break;
             }
-            //Fire();
-            
         }
-        if (Input.GetMouseButtonUp(0))
-        {
-            animator.SetBool("IsFiring", false);
-            //Debug.Log("up");
-        }
+        //if (Input.GetMouseButtonUp(0))
+        //{
+        //    animator.SetBool("IsFiring", false);
+        //    //Debug.Log("up");
+        //}
 
         mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         Vector2 bowpos = transform.position;
 
-        direction = mousePoint - bowpos;
+        direction = targetPoint - bowpos;//mousePoint - bowpos;
 
         faceMouse();
 
@@ -187,7 +197,7 @@ public class Bow : MonoBehaviour
     private void faceMouse()
     {
         transform.right = direction;
-        float angle = Mathf.Atan2(mousePoint.y - transform.position.y, mousePoint.x - transform.position.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(targetPoint.y - transform.position.y, targetPoint.x - transform.position.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
     }
 
@@ -211,5 +221,43 @@ public class Bow : MonoBehaviour
     {
         force = level3Force;
         level = Level.Three;
+    }
+
+    public void IsPressedUp()
+    {
+        isUp = true;
+    }
+
+    public void IsPressedDown()
+    {
+        isDown = true;
+    }
+
+    public void IsReleasedUp()
+    {
+        isUp = false;
+    }
+
+    public void IsReleasedDown()
+    {
+        isDown = false;
+    }
+
+    public void TargetUp()
+    {
+        if (targetPoint.y >= maxTargetPos) 
+        {
+            return;
+        }
+        targetPoint.y += intesity;
+    }
+
+    public void TargetDown()
+    {
+        if (targetPoint.y <= minTargetPos)
+        {
+            return;
+        }
+        targetPoint.y -= intesity;
     }
 }
