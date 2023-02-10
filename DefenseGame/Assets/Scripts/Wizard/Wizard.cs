@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.ParticleSystem;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
 public class Wizard : MonoBehaviour
@@ -88,18 +89,17 @@ public class Wizard : MonoBehaviour
             }
         }
 
-        if (isClick && Input.GetMouseButtonDown(0))
-        {
-            Attack();
-            InitAfterAttack();
-        }
+        //if (isClick && Input.GetMouseButtonDown(0))
+        //{
+        //    Attack();
+        //    InitAfterAttack();
+        //}
 
-        if (Input.GetMouseButtonUp(0))
-        {
-            animator.SetBool("Attack", false);
-            
-        }
+        //if (Input.GetMouseButtonUp(0))
+        //{
+        //    animator.SetBool("Attack", false);
 
+        //}
         if (rangeArea.activeSelf) 
         {
             SetRangePosition();
@@ -120,6 +120,14 @@ public class Wizard : MonoBehaviour
         slider.value = 0;
         //slider.gameObject.SetActive(false);
         GameManager.instance.IsArrowAble = false; 
+    }
+
+    public void OnReleaseButton()
+    {
+        //Debug.Log("Release");
+        Attack();
+        InitAfterAttack();
+        animator.SetBool("Attack", false);
     }
 
     private void Attack()
@@ -177,5 +185,8 @@ public class Wizard : MonoBehaviour
         attackPrefab = stats.attackPrefab;
         attackTimer = stats.attackHitTime;
     }
+
+    
+    
 }
 
