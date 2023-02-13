@@ -69,7 +69,7 @@ public class SoundManager : MonoBehaviour
 
     public void ChangeBgmOnSceneLoad(int sceneNum)
     {
-        Debug.Log("play");
+        //Debug.Log("play");
         StopAll();
         PlayBgm(BGM[sceneNum]);
     }

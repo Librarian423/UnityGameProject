@@ -25,8 +25,11 @@ public class UIManager : MonoBehaviour
 
     public TextMeshProUGUI waveText;
     public Slider hpBar;
-    
-    
+
+
+    [Header("Buttons")]
+    public GameObject pauseBtn;
+
     //Popups
     [Header("PopUps")]
     public GameObject skillTree;
@@ -77,11 +80,13 @@ public class UIManager : MonoBehaviour
 
     private void OpenPausePopUp()
     {
+        GameManager.instance.Pause();
         pausePopUp.SetActive(true);
     }
 
     private void ClosePausePopUp()
     {
+        GameManager.instance.Resume();
         pausePopUp.SetActive(false);
     }
 
@@ -89,6 +94,7 @@ public class UIManager : MonoBehaviour
     {
         if (!skillTree.activeSelf)
         {
+            SetInterectableFalse(pauseBtn.GetComponent<Button>());
             GameManager.instance.Pause();
             OpenPausePopUp();
         }
@@ -98,6 +104,7 @@ public class UIManager : MonoBehaviour
     {
         if (!skillTree.activeSelf)
         {
+            SetInterectableTrue(pauseBtn.GetComponent<Button>());
             GameManager.instance.Resume();
             ClosePausePopUp();
         }

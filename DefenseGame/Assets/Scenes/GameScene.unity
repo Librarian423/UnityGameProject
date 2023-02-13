@@ -1345,6 +1345,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &562906871 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2060059033686101226, guid: f3017072bbb0a40338ccc32d837d2da6, type: 3}
+  m_PrefabInstance: {fileID: 1272897529613005992}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &567520480 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8017485178578407113, guid: c826d9ea3440f4a8e8986f4cd8cabe2a, type: 3}
@@ -2342,6 +2347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveText: {fileID: 1802845695602181693}
   hpBar: {fileID: 1826364530}
+  pauseBtn: {fileID: 562906871}
   skillTree: {fileID: 1726614155}
   pausePopUp: {fileID: 8984723170976132801}
   fbBtn: {fileID: 1626695116}
@@ -5716,7 +5722,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2060059033686101224, guid: f3017072bbb0a40338ccc32d837d2da6, type: 3}
   m_PrefabInstance: {fileID: 1272897529613005992}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 562906871}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}

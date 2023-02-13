@@ -48,6 +48,41 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                switch (SceneManager.GetActiveScene().buildIndex)
+                {
+                    case 0:
+                        Application.Quit();
+                        return;
+
+                    case 1:
+                        if (!IsPause)
+                        {
+                            UIManager.instance.PauseGame();
+                        }
+                        else
+                        {
+                            UIManager.instance.ResumeGame();
+
+                        }
+                        return;
+
+                    case 2:
+                        SceneManager.LoadScene(0);
+                        break;
+                    default:
+                        return;
+                }
+            }
+        }
+    }
+
     public void Pause()
     {
         Time.timeScale = 0f;
