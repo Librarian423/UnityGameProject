@@ -53,7 +53,7 @@ public class SkillTree : MonoBehaviour
             FireblastWizard.SetActive(true);
             enabledMagic.Add(Magics.FireBlast);
             UIManager.instance.EnableMagicBtn(Magics.FireBlast);
-            UIManager.instance.SetInterectable(FlameTree[0]);
+            UIManager.instance.SetInterectableFalse(FlameTree[0]);
             SetNextSkillInterectable(FlameTree[1]);
         }
     }
@@ -72,7 +72,7 @@ public class SkillTree : MonoBehaviour
             ExplosionWizard.SetActive(true);
             enabledMagic.Add(Magics.Explosion);
             UIManager.instance.EnableMagicBtn(Magics.Explosion);
-            UIManager.instance.SetInterectable(FlameTree[1]);
+            UIManager.instance.SetInterectableFalse(FlameTree[1]);
 
         }
     }
@@ -92,7 +92,7 @@ public class SkillTree : MonoBehaviour
             LaserWizard.SetActive(true);
             enabledMagic.Add(Magics.Laser);
             UIManager.instance.EnableMagicBtn(Magics.Laser);
-            UIManager.instance.SetInterectable(LaserTree[0]);
+            UIManager.instance.SetInterectableFalse(LaserTree[0]);
             SetNextSkillInterectable(LaserTree[1]);
         }
     }
@@ -111,7 +111,7 @@ public class SkillTree : MonoBehaviour
             ElectWizard.SetActive(true);
             enabledMagic.Add(Magics.Electric);
             UIManager.instance.EnableMagicBtn(Magics.Electric);
-            UIManager.instance.SetInterectable(LaserTree[1]);
+            UIManager.instance.SetInterectableFalse(LaserTree[1]);
             //SetNextSkillInterectable(LaserTree[1]);
         }
     }
@@ -122,7 +122,7 @@ public class SkillTree : MonoBehaviour
         {
             PropertyManager.instance.SetMoney(-data.Archer1Cost);
             archerMain.GetComponentInChildren<Bow>().SetLevel2();
-            UIManager.instance.SetInterectable(ArcherTree[0]);
+            UIManager.instance.SetInterectableFalse(ArcherTree[0]);
             SetNextSkillInterectable(ArcherTree[1]);
         }
         
@@ -134,7 +134,7 @@ public class SkillTree : MonoBehaviour
         {
             PropertyManager.instance.SetMoney(-data.Archer2Cost);
             archerMain.GetComponentInChildren<Bow>().SetLevel3();
-            UIManager.instance.SetInterectable(ArcherTree[1]);
+            UIManager.instance.SetInterectableFalse(ArcherTree[1]);
         }
 
     }

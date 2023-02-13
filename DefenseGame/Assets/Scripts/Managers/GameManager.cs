@@ -52,12 +52,14 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0f;
         isPause = true;
+        UIManager.instance.SetMagicButtons(false);
     }
 
     public void Resume()
     {
         Time.timeScale = 1f;
         isPause = false;
+        UIManager.instance.SetMagicButtons(true);
     }
 
     public void GameOver()

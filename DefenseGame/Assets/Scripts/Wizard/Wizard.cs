@@ -23,7 +23,7 @@ public class Wizard : MonoBehaviour
     public UnityEngine.UI.Slider slider;
     //private Coroutine coroutine;
     public float coolTime = 1f;
-    private float timer = 0f; 
+    //private float timer = 0f; 
 
     private Animator animator;
     private AttackType type;
@@ -33,13 +33,13 @@ public class Wizard : MonoBehaviour
     private GameObject attackPrefab;
     private float attackTimer = 0f;
     private GameObject magic;
-    private bool isClick = false;
+    private bool isCancel = false;
     private UnityEngine.UI.Button button;
 
     // Start is called before the first frame update
     void Start()
     {
-        timer = coolTime;
+        //timer = coolTime;
         slider.value = 0;
         slider.fillRect.gameObject.SetActive(false);
         animator = GetComponent<Animator>();
@@ -75,7 +75,7 @@ public class Wizard : MonoBehaviour
             return;
         }
 
-        timer += Time.deltaTime;
+        //timer += Time.deltaTime;
         if (button != null)
         {
             if (slider.value > 0)
@@ -106,50 +106,6 @@ public class Wizard : MonoBehaviour
         }
     }
 
-    public void OnClickButton(UnityEngine.UI.Button button)
-    {
-
-        if (GameManager.instance.IsPause) 
-        {
-            return;
-        }
-        this.button = button;
-        rangeArea.SetActive(true);
-        isClick = true;
-        slider.maxValue = coolTime;
-        slider.value = 0;
-        //slider.gameObject.SetActive(false);
-        GameManager.instance.IsArrowAble = false; 
-    }
-
-    public void OnReleaseButton()
-    {
-        //Debug.Log("Release");
-        Attack();
-        InitAfterAttack();
-        animator.SetBool("Attack", false);
-    }
-
-    private void Attack()
-    {
-        slider.fillRect.gameObject.SetActive(true);
-        UIManager.instance.SetInterectable(button);
-        animator.SetBool("Attack", true);
-        SoundManager.instance.PlayEffect(castClip);
-        Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        switch (type)
-        {
-            case AttackType.Single:
-                break;
-            case AttackType.Multiple:
-                magic.GetComponent<MultipleAttack>().Attack(pos);
-                break;
-            case AttackType.Area:
-                magic.GetComponent<AreaAttack>().Attack(pos);
-                break;
-        }
-    }
-
     private void SetRangePosition()
     {
         Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -166,14 +122,75 @@ public class Wizard : MonoBehaviour
         }
     }
 
-    private void InitAfterAttack()
+    public void OnClickButton(UnityEngine.UI.Button button)
     {
-        timer = coolTime;
-        isClick = false;
+
+        if (GameManager.instance.IsPause) 
+        {
+            return;
+        }
+        isCancel = false;
+        //Debug.Log("click");
+        this.button = button;
+        rangeArea.SetActive(true); 
+        slider.maxValue = coolTime;
+        slider.value = 0;
+    }
+
+    public void OnReleaseButton()
+    {
+        if (GameManager.instance.IsPause || isCancel)
+        {
+            //Debug.Log("canceled");
+            return;
+        }
+        //Debug.Log("Release");
+        Attack();
+        InitAfterAttack();
+        animator.SetBool("Attack", false);
+    }
+
+    private void Attack()
+    {
+        UIManager.instance.SetInterectableFalse(button);
+        animator.SetBool("Attack", true);
+        SoundManager.instance.PlayEffect(castClip);
+        Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        switch (type)
+        {
+            case AttackType.Single:
+                break;
+            case AttackType.Multiple:
+                magic.GetComponent<MultipleAttack>().Attack(pos);
+                break;
+            case AttackType.Area:
+                magic.GetComponent<AreaAttack>().Attack(pos);
+                break;
+        }
+    }
+
+    private void InitAfterAttack()
+    {  
         rangeArea.SetActive(false);
-        GameManager.instance.IsArrowAble = true;
         slider.value = coolTime;
         slider.fillRect.gameObject.SetActive(true);
+    }
+
+    public void CancelMagic()
+    {
+        if (UIManager.instance.skillTree.activeSelf && !isCancel)
+        {
+            //Debug.Log("Cancel");
+            isCancel = true;
+            rangeArea.SetActive(false);
+            slider.value = 0;
+            slider.fillRect.gameObject.SetActive(false);
+        }
+        else
+        {
+            return;
+        }
+        
     }
 
     private void SetStats()

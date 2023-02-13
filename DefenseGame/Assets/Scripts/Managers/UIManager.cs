@@ -25,8 +25,7 @@ public class UIManager : MonoBehaviour
 
     public TextMeshProUGUI waveText;
     public Slider hpBar;
-    //private bool isHit = false;
-    //public bool IsHit { get { return isHit; } set { isHit = value; } }
+    
     
     //Popups
     [Header("PopUps")]
@@ -146,18 +145,44 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void SetInterectable(Button button)
+    public void SetInterectableFalse(Button button)
     {
+        if (button == null)
+        {
+            return;
+        }
         button.interactable = false;
     }
 
     public void SetInterectableTrue(Button button)
     {
+        if (button == null)
+        {
+            return;
+        }
         button.interactable = true;
     }
 
     public void ClickBtnSE(AudioClip clip)
     {
         SoundManager.instance.PlayEffect(clip);
+    }
+
+    public void SetMagicButtons(bool isInterect)
+    {
+        if (isInterect)
+        {
+            SetInterectableTrue(fbBtn.GetComponent<Button>());
+            SetInterectableTrue(exBtn.GetComponent<Button>());
+            SetInterectableTrue(lBtn.GetComponent<Button>());
+            SetInterectableTrue(elecBtn.GetComponent<Button>());
+        }
+        else
+        {
+            SetInterectableFalse(fbBtn.GetComponent<Button>());
+            SetInterectableFalse(exBtn.GetComponent<Button>());
+            SetInterectableFalse(lBtn.GetComponent<Button>());
+            SetInterectableFalse(elecBtn.GetComponent<Button>());
+        }
     }
 }

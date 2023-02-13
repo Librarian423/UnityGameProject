@@ -112,7 +112,7 @@ public class Bow : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (GameManager.instance.IsPause || !GameManager.instance.IsArrowAble) 
+        if (GameManager.instance.IsPause) 
         {
             return;
         }
@@ -170,11 +170,6 @@ public class Bow : MonoBehaviour
         arrow.transform.position = transform.position;
         arrow.Damage = damage;
         arrow.GetComponent<Rigidbody2D>().velocity = transform.up * force;
-
-        //var arrow2 = ArrowPool.Get();
-        //arrow2.transform.position = new Vector3(transform.position.x + 0.5f, transform.position.y);
-        //arrow2.Damage = damage;
-        //arrow2.GetComponent<Rigidbody2D>().velocity = transform.up * force;
     }
 
     private void Fire2()
