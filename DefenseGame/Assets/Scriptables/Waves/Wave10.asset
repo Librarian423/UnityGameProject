@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d220c13e3972447b85bc979b0489926, type: 3}
-  m_Name: Wave3
+  m_Name: Wave10
   m_EditorClassIdentifier: 
-  wave: 3
-  goldDragonCount: 5
-  redDragonCount: 7
-  bossDragonCount: 0
-  eyeBallMinCount: 0
-  eyeBallMaxCount: 0
-  bossWave: 0
+  wave: 10
+  goldDragonCount: 0
+  redDragonCount: 0
+  bossDragonCount: 1
+  eyeBallMinCount: 5
+  eyeBallMaxCount: 10
+  bossWave: 1

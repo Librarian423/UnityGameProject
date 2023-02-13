@@ -29,6 +29,8 @@ public class UIManager : MonoBehaviour
 
     [Header("Buttons")]
     public GameObject pauseBtn;
+    public GameObject arrowUpBtn;
+    public GameObject arrowDownBtn;
 
     //Popups
     [Header("PopUps")]
@@ -168,6 +170,20 @@ public class UIManager : MonoBehaviour
             return;
         }
         button.interactable = true;
+    }
+
+    public void SetActiveArrowButtons(bool isActive)
+    {
+        if (isActive)
+        {
+            SetInterectableTrue(arrowUpBtn.GetComponent<Button>());
+            SetInterectableTrue(arrowDownBtn.GetComponent<Button>());           
+        }
+        else
+        {
+            SetInterectableFalse(arrowUpBtn.GetComponent<Button>());
+            SetInterectableFalse(arrowDownBtn.GetComponent<Button>());
+        }
     }
 
     public void ClickBtnSE(AudioClip clip)

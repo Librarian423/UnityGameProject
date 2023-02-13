@@ -129,6 +129,7 @@ public class Wizard : MonoBehaviour
         {
             return;
         }
+        UIManager.instance.SetActiveArrowButtons(false);
         isCancel = false;
         //Debug.Log("click");
         this.button = button;
@@ -144,16 +145,18 @@ public class Wizard : MonoBehaviour
             //Debug.Log("canceled");
             return;
         }
+        UIManager.instance.SetActiveArrowButtons(true);
         //Debug.Log("Release");
         Attack();
         InitAfterAttack();
-        animator.SetBool("Attack", false);
+        //animator.SetBool("Attack", false);
     }
 
     private void Attack()
     {
         UIManager.instance.SetInterectableFalse(button);
-        animator.SetBool("Attack", true);
+        //animator.SetBool("Attack", true);
+        animator.SetTrigger("Attack");
         SoundManager.instance.PlayEffect(castClip);
         Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         switch (type)
@@ -174,13 +177,14 @@ public class Wizard : MonoBehaviour
         rangeArea.SetActive(false);
         slider.value = coolTime;
         slider.fillRect.gameObject.SetActive(true);
+        //animator.SetBool("Attack", false);
     }
 
     public void CancelMagic()
     {
         if (UIManager.instance.skillTree.activeSelf && !isCancel)
         {
-            //Debug.Log("Cancel");
+            UIManager.instance.SetActiveArrowButtons(true);
             isCancel = true;
             rangeArea.SetActive(false);
             slider.value = 0;
