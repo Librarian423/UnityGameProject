@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
+
 public class Wizard : MonoBehaviour
 {
     public enum AttackType
@@ -21,7 +22,6 @@ public class Wizard : MonoBehaviour
 
     //cool time
     public UnityEngine.UI.Slider slider;
-    //private Coroutine coroutine;
     public float coolTime = 1f;
     //private float timer = 0f; 
 
@@ -34,7 +34,8 @@ public class Wizard : MonoBehaviour
     private float attackTimer = 0f;
     private GameObject magic;
     private bool isCancel = false;
-    private UnityEngine.UI.Button button;
+    private UnityEngine.UI.Button button;  
+    private int touchId;
 
     // Start is called before the first frame update
     void Start()
@@ -109,6 +110,19 @@ public class Wizard : MonoBehaviour
     private void SetRangePosition()
     {
         Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (Input.touchCount > 0)
+        {
+            foreach (var touch in Input.touches)
+            {
+                if (touch.fingerId == touchId)
+                {
+                    touchId = touch.fingerId;  
+                    pos = Camera.main.ScreenToWorldPoint(touch.position);
+                }
+            }
+        }
+        
         switch (type)
         {
             case AttackType.Single:
@@ -124,14 +138,22 @@ public class Wizard : MonoBehaviour
 
     public void OnClickButton(UnityEngine.UI.Button button)
     {
-
         if (GameManager.instance.IsPause) 
         {
             return;
         }
+
+        foreach (var touch in Input.touches)
+        {            
+            var pos = Camera.main.ScreenToWorldPoint(touch.position);
+            if (Vector2.Distance(pos, button.transform.position) <= 1) 
+            {         
+                touchId = touch.fingerId;
+            }
+        }
+
         UIManager.instance.SetActiveArrowButtons(false);
         isCancel = false;
-        //Debug.Log("click");
         this.button = button;
         rangeArea.SetActive(true); 
         slider.maxValue = coolTime;
@@ -142,23 +164,33 @@ public class Wizard : MonoBehaviour
     {
         if (GameManager.instance.IsPause || isCancel)
         {
-            //Debug.Log("canceled");
+            
             return;
         }
         UIManager.instance.SetActiveArrowButtons(true);
-        //Debug.Log("Release");
         Attack();
         InitAfterAttack();
-        //animator.SetBool("Attack", false);
     }
 
     private void Attack()
     {
         UIManager.instance.SetInterectableFalse(button);
-        //animator.SetBool("Attack", true);
         animator.SetTrigger("Attack");
         SoundManager.instance.PlayEffect(castClip);
         Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (Input.touchCount > 0)
+        {
+            foreach (var touch in Input.touches)
+            {
+                if (touch.fingerId == touchId)
+                {
+                    touchId = touch.fingerId;
+                    pos = Camera.main.ScreenToWorldPoint(touch.position);
+                }
+            }
+        }
+
         switch (type)
         {
             case AttackType.Single:
@@ -177,7 +209,6 @@ public class Wizard : MonoBehaviour
         rangeArea.SetActive(false);
         slider.value = coolTime;
         slider.fillRect.gameObject.SetActive(true);
-        //animator.SetBool("Attack", false);
     }
 
     public void CancelMagic()
@@ -205,9 +236,6 @@ public class Wizard : MonoBehaviour
         attackDistance = stats.attackDistance;
         attackPrefab = stats.attackPrefab;
         attackTimer = stats.attackHitTime;
-    }
-
-    
-    
+    }   
 }
 

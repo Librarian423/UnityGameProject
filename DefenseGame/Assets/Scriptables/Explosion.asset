@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   attackSpeed: 0
-  damage: 50
+  damage: 200
   attackDistance: 10
   attackPrefab: {fileID: 4235940334250527709, guid: d0dbc1237796e4d869ef20724086fb18, type: 3}
   attackHitTime: 0.2

@@ -153,7 +153,7 @@ public class Bow : MonoBehaviour
 
         Vector2 bowpos = transform.position;
 
-        direction = targetPoint - bowpos;//mousePoint - bowpos;
+        direction = targetPoint - bowpos;
 
         faceMouse();
 
@@ -240,7 +240,7 @@ public class Bow : MonoBehaviour
 
     public void TargetUp()
     {
-        if (targetPoint.y >= maxTargetPos) 
+        if (targetPoint.y >= maxTargetPos && Input.touchCount>1) 
         {
             return;
         }
@@ -249,7 +249,7 @@ public class Bow : MonoBehaviour
 
     public void TargetDown()
     {
-        if (targetPoint.y <= minTargetPos)
+        if (targetPoint.y <= minTargetPos && !UIManager.instance.IsArrow) 
         {
             return;
         }

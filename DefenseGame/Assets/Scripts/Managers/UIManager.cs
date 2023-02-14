@@ -25,7 +25,8 @@ public class UIManager : MonoBehaviour
 
     public TextMeshProUGUI waveText;
     public Slider hpBar;
-
+    private bool isArrow = true;
+    public bool IsArrow { get { return isArrow; } set { isArrow = this; } }
 
     [Header("Buttons")]
     public GameObject pauseBtn;
@@ -174,10 +175,11 @@ public class UIManager : MonoBehaviour
 
     public void SetActiveArrowButtons(bool isActive)
     {
+        IsArrow = isActive;
         if (isActive)
         {
             SetInterectableTrue(arrowUpBtn.GetComponent<Button>());
-            SetInterectableTrue(arrowDownBtn.GetComponent<Button>());           
+            SetInterectableTrue(arrowDownBtn.GetComponent<Button>()); 
         }
         else
         {

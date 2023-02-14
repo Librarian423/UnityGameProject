@@ -27,12 +27,18 @@ public class Arrow : MonoBehaviour
     void Update()
     {
         Move();
+
+        if (gameObject.transform.position.y <= -10) 
+        {
+            arrowPool.Release(this);
+
+        }
     }
 
-    private void OnBecameInvisible()
-    {
-        arrowPool.Release(this);
-    }
+    //private void OnBecameInvisible()
+    //{
+    //    arrowPool.Release(this);
+    //}
 
     private void Move()
     {

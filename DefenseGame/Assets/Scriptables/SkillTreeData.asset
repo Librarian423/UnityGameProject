@@ -14,3 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FBWizard1Cost: 1000
   LWizard1Cost: 1000
+  Archer1Cost: 1000
+  Archer2Cost: 5000
+  FBWizard2Cost: 5000
+  LWizard2Cost: 3000
