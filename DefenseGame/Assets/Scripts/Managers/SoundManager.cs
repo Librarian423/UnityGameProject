@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static SoundManager;
 
 public class SoundManager : MonoBehaviour
 {
@@ -22,15 +23,16 @@ public class SoundManager : MonoBehaviour
 
     public enum Sound
     {
+        Total,
         Bgm,
         Effect,
 
     }
     [Header("OptionSliders")]
     public GameObject soundPopup;
-    public Slider totalVol;
-    public Slider bgmVol;
-    public Slider seVol;
+    //public Slider totalVol;
+    //public Slider bgmVol;
+    //public Slider seVol;
 
     [Header("Clips")]
     public AudioClip[] BGM;
@@ -50,14 +52,6 @@ public class SoundManager : MonoBehaviour
             // 자신을 파괴
             Destroy(gameObject);
         }
-        if (soundPopup != null)
-        {
-            totalVol.value = totalVolume;
-            bgmVol.value = bgmVolume;
-            seVol.value = effectVolume;
-        }
-        
-        
     }
 
     // Start is called before the first frame update
@@ -65,18 +59,17 @@ public class SoundManager : MonoBehaviour
     {
         if (soundPopup != null)
         {
-            totalVol.value = totalVolume;
-            bgmVol.value = bgmVolume;
-            seVol.value = effectVolume;
             bgmSound.volume = bgmVolume * totalVolume;
             effectSound.volume = effectVolume * totalVolume;
         }
+       
         ChangeBgmOnSceneLoad(SceneManager.GetActiveScene().buildIndex);
         
     }
 
     public void ChangeBgmOnSceneLoad(int sceneNum)
     {
+        //Debug.Log("play");
         StopAll();
         PlayBgm(BGM[sceneNum]);
     }
@@ -97,11 +90,20 @@ public class SoundManager : MonoBehaviour
         effectSound.PlayOneShot(clip);
     }
 
-    public void SetVolumes()
+    public void SetVolumes(float volume, Sound sound)
     {
-        totalVolume = totalVol.value;
-        bgmVolume = bgmVol.value;
-        effectVolume = seVol.value;
+        switch (sound)
+        {
+            case Sound.Total:
+                totalVolume = volume;
+                break;
+            case Sound.Bgm:
+                bgmVolume = volume;
+                break;
+            case Sound.Effect:
+                effectVolume = volume;
+                break;
+        }   
 
         bgmSound.volume = bgmVolume * totalVolume;
         effectSound.volume = effectVolume * totalVolume;
@@ -113,5 +115,19 @@ public class SoundManager : MonoBehaviour
         {
             bgmSound.Stop();
         }
+    }
+
+    public float GetVolume(Sound sound)
+    {
+        switch (sound)
+        {
+            case Sound.Total:
+                return totalVolume;
+            case Sound.Bgm:
+                return bgmVolume;
+            case Sound.Effect:
+                return effectVolume;
+        }
+        return 0;
     }
 }

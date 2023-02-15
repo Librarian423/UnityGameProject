@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cd6700dccbe45c1bfc5e7da405e6a5, type: 3}
   m_Name: Gold
   m_EditorClassIdentifier: 
-  health: 100
+  health: 200
   speed: 0.8
   damage: 10
   movePos: 5
   fireDelay: 2
-  dropGold: 100
+  dropGold: 150
   hitPrefab: {fileID: 7510570829769233737, guid: 6f41138f1c43f45df8d361604db7a4d9, type: 3}
   playDuration: 1

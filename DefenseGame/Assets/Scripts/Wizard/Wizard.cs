@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.ParticleSystem;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
+
 
 public class Wizard : MonoBehaviour
 {
@@ -20,9 +22,8 @@ public class Wizard : MonoBehaviour
 
     //cool time
     public UnityEngine.UI.Slider slider;
-    //private Coroutine coroutine;
     public float coolTime = 1f;
-    private float timer = 0f; 
+    //private float timer = 0f; 
 
     private Animator animator;
     private AttackType type;
@@ -32,13 +33,14 @@ public class Wizard : MonoBehaviour
     private GameObject attackPrefab;
     private float attackTimer = 0f;
     private GameObject magic;
-    private bool isClick = false;
-    private UnityEngine.UI.Button button;
+    private bool isCancel = false;
+    private UnityEngine.UI.Button button;  
+    private int touchId;
 
     // Start is called before the first frame update
     void Start()
     {
-        timer = coolTime;
+        //timer = coolTime;
         slider.value = 0;
         slider.fillRect.gameObject.SetActive(false);
         animator = GetComponent<Animator>();
@@ -74,7 +76,7 @@ public class Wizard : MonoBehaviour
             return;
         }
 
-        timer += Time.deltaTime;
+        //timer += Time.deltaTime;
         if (button != null)
         {
             if (slider.value > 0)
@@ -88,47 +90,107 @@ public class Wizard : MonoBehaviour
             }
         }
 
-        if (isClick && Input.GetMouseButtonDown(0))
-        {
-            Attack();
-            InitAfterAttack();
-        }
+        //if (isClick && Input.GetMouseButtonDown(0))
+        //{
+        //    Attack();
+        //    InitAfterAttack();
+        //}
 
-        if (Input.GetMouseButtonUp(0))
-        {
-            animator.SetBool("Attack", false);
-            
-        }
+        //if (Input.GetMouseButtonUp(0))
+        //{
+        //    animator.SetBool("Attack", false);
 
+        //}
         if (rangeArea.activeSelf) 
         {
             SetRangePosition();
         }
     }
 
+    private void SetRangePosition()
+    {
+        Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (Input.touchCount > 0)
+        {
+            foreach (var touch in Input.touches)
+            {
+                if (touch.fingerId == touchId)
+                {
+                    touchId = touch.fingerId;  
+                    pos = Camera.main.ScreenToWorldPoint(touch.position);
+                }
+            }
+        }
+        
+        switch (type)
+        {
+            case AttackType.Single:
+                break;
+            case AttackType.Multiple:
+                rangeArea.transform.position = pos;
+                break;
+            case AttackType.Area:
+                rangeArea.transform.position = pos;
+                break;
+        }
+    }
+
     public void OnClickButton(UnityEngine.UI.Button button)
     {
-
         if (GameManager.instance.IsPause) 
         {
             return;
         }
+
+        foreach (var touch in Input.touches)
+        {            
+            var pos = Camera.main.ScreenToWorldPoint(touch.position);
+            if (Vector2.Distance(pos, button.transform.position) <= 1) 
+            {         
+                touchId = touch.fingerId;
+            }
+        }
+
+        UIManager.instance.SetActiveArrowButtons(false);
+        isCancel = false;
         this.button = button;
-        rangeArea.SetActive(true);
-        isClick = true;
+        rangeArea.SetActive(true); 
         slider.maxValue = coolTime;
         slider.value = 0;
-        //slider.gameObject.SetActive(false);
-        GameManager.instance.IsArrowAble = false; 
+    }
+
+    public void OnReleaseButton()
+    {
+        if (GameManager.instance.IsPause || isCancel)
+        {
+            
+            return;
+        }
+        UIManager.instance.SetActiveArrowButtons(true);
+        Attack();
+        InitAfterAttack();
     }
 
     private void Attack()
     {
-        slider.fillRect.gameObject.SetActive(true);
-        UIManager.instance.SetInterectable(button);
-        animator.SetBool("Attack", true);
+        UIManager.instance.SetInterectableFalse(button);
+        animator.SetTrigger("Attack");
         SoundManager.instance.PlayEffect(castClip);
         Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (Input.touchCount > 0)
+        {
+            foreach (var touch in Input.touches)
+            {
+                if (touch.fingerId == touchId)
+                {
+                    touchId = touch.fingerId;
+                    pos = Camera.main.ScreenToWorldPoint(touch.position);
+                }
+            }
+        }
+
         switch (type)
         {
             case AttackType.Single:
@@ -142,30 +204,28 @@ public class Wizard : MonoBehaviour
         }
     }
 
-    private void SetRangePosition()
-    {
-        Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        switch (type)
-        {
-            case AttackType.Single:
-                break;
-            case AttackType.Multiple:
-                rangeArea.transform.position = pos;
-                break;
-            case AttackType.Area:
-                rangeArea.transform.position = pos;
-                break;
-        }
-    }
-
     private void InitAfterAttack()
-    {
-        timer = coolTime;
-        isClick = false;
+    {  
         rangeArea.SetActive(false);
-        GameManager.instance.IsArrowAble = true;
         slider.value = coolTime;
         slider.fillRect.gameObject.SetActive(true);
+    }
+
+    public void CancelMagic()
+    {
+        if (UIManager.instance.skillTree.activeSelf && !isCancel)
+        {
+            UIManager.instance.SetActiveArrowButtons(true);
+            isCancel = true;
+            rangeArea.SetActive(false);
+            slider.value = 0;
+            slider.fillRect.gameObject.SetActive(false);
+        }
+        else
+        {
+            return;
+        }
+        
     }
 
     private void SetStats()
@@ -176,6 +236,6 @@ public class Wizard : MonoBehaviour
         attackDistance = stats.attackDistance;
         attackPrefab = stats.attackPrefab;
         attackTimer = stats.attackHitTime;
-    }
+    }   
 }
 

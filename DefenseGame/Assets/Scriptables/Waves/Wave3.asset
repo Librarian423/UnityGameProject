@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Wave3
   m_EditorClassIdentifier: 
   wave: 3
-  goldDragonCount: 0
-  redDragonCount: 0
-  bossDragonCount: 1
-  eyeBallMinCount: 5
-  eyeBallMaxCount: 10
-  bossWave: 1
+  goldDragonCount: 5
+  redDragonCount: 7
+  bossDragonCount: 0
+  eyeBallMinCount: 0
+  eyeBallMaxCount: 0
+  bossWave: 0

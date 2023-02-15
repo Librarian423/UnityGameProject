@@ -25,9 +25,14 @@ public class UIManager : MonoBehaviour
 
     public TextMeshProUGUI waveText;
     public Slider hpBar;
-    //private bool isHit = false;
-    //public bool IsHit { get { return isHit; } set { isHit = value; } }
-    
+    private bool isArrow = true;
+    public bool IsArrow { get { return isArrow; } set { isArrow = this; } }
+
+    [Header("Buttons")]
+    public GameObject pauseBtn;
+    public GameObject arrowUpBtn;
+    public GameObject arrowDownBtn;
+
     //Popups
     [Header("PopUps")]
     public GameObject skillTree;
@@ -78,11 +83,13 @@ public class UIManager : MonoBehaviour
 
     private void OpenPausePopUp()
     {
+        GameManager.instance.Pause();
         pausePopUp.SetActive(true);
     }
 
     private void ClosePausePopUp()
     {
+        GameManager.instance.Resume();
         pausePopUp.SetActive(false);
     }
 
@@ -90,6 +97,7 @@ public class UIManager : MonoBehaviour
     {
         if (!skillTree.activeSelf)
         {
+            SetInterectableFalse(pauseBtn.GetComponent<Button>());
             GameManager.instance.Pause();
             OpenPausePopUp();
         }
@@ -99,6 +107,7 @@ public class UIManager : MonoBehaviour
     {
         if (!skillTree.activeSelf)
         {
+            SetInterectableTrue(pauseBtn.GetComponent<Button>());
             GameManager.instance.Resume();
             ClosePausePopUp();
         }
@@ -146,18 +155,59 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void SetInterectable(Button button)
+    public void SetInterectableFalse(Button button)
     {
+        if (button == null)
+        {
+            return;
+        }
         button.interactable = false;
     }
 
     public void SetInterectableTrue(Button button)
     {
+        if (button == null)
+        {
+            return;
+        }
         button.interactable = true;
+    }
+
+    public void SetActiveArrowButtons(bool isActive)
+    {
+        IsArrow = isActive;
+        if (isActive)
+        {
+            SetInterectableTrue(arrowUpBtn.GetComponent<Button>());
+            SetInterectableTrue(arrowDownBtn.GetComponent<Button>()); 
+        }
+        else
+        {
+            SetInterectableFalse(arrowUpBtn.GetComponent<Button>());
+            SetInterectableFalse(arrowDownBtn.GetComponent<Button>());
+        }
     }
 
     public void ClickBtnSE(AudioClip clip)
     {
         SoundManager.instance.PlayEffect(clip);
+    }
+
+    public void SetMagicButtons(bool isInterect)
+    {
+        if (isInterect)
+        {
+            SetInterectableTrue(fbBtn.GetComponent<Button>());
+            SetInterectableTrue(exBtn.GetComponent<Button>());
+            SetInterectableTrue(lBtn.GetComponent<Button>());
+            SetInterectableTrue(elecBtn.GetComponent<Button>());
+        }
+        else
+        {
+            SetInterectableFalse(fbBtn.GetComponent<Button>());
+            SetInterectableFalse(exBtn.GetComponent<Button>());
+            SetInterectableFalse(lBtn.GetComponent<Button>());
+            SetInterectableFalse(elecBtn.GetComponent<Button>());
+        }
     }
 }
